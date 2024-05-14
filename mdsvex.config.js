@@ -114,9 +114,10 @@ const prettyCodeOptions = {
 		),
 		// for light, class name will be min-light, use that class name in pre.svelte to adjust
 		// any changes here, you need to change in pre.svelte as well with the same class name
-		light: JSON.parse(
-			readFileSync(resolve(__dirname, './src/lib/styles/themes/tokyo-night-light.json'), 'utf-8')
-		)
+		// light: JSON.parse(
+		// 	readFileSync(resolve(__dirname, './src/lib/styles/themes/tokyo-night-light.json'), 'utf-8')
+		// )
+		light: 'min-light',
 	},
 	keepBackground: false, // to use our own background color
 	onVisitLine(node) {
@@ -187,9 +188,9 @@ export const mdsvexOptions = {
 		rehypeCustomComponents,
 		rehypeComponentPreToPre,
 		[rehypePrettyCode, prettyCodeOptions],
+		rehypeHandleMetadata,
 		rehypeRenderCode,
 		rehypePreToComponentPre,
-		rehypeHandleMetadata,
 		rehypeSlug,
 		correct_hast_tree,
 		rehype_katex
@@ -270,53 +271,6 @@ function rehypePreToComponentPre() {
 	};
 }
 
-// function rehypeHandleMetadata() {
-// 	return async (tree) => {
-// 		visit(tree, (node) => {
-// 			if (node?.type === 'element' && node?.tagName === 'figure') {
-// 				if (!('data-rehype-pretty-code-figure' in node.properties)) {
-// 					return;
-// 				}
-
-// 				// console.log(node)
-
-// 				const title = node.children[0].children[0].value
-
-// 				// loop through all the children of the node, find the pre element and add the title to it
-// 				if (title) {
-// 					node.children.forEach(child => {
-// 						if (child.tagName === 'pre') {
-// 							child.properties['__title__'] = title;
-// 						}
-// 					})
-// 				}
-
-// 				// console.log(node.children[1])
-
-// 				console.log(title)
-
-// 				// const titleElement = node.children[0];
-// 				// const preElement = node.children.at(-1);
-// 				// // console.log(preElement)
-// 				// // console.log(preElement.properties)
-// 				// preElement.properties['__title__'] = title;
-// 				// // console.log(preElement.properties)
-
-// 				// if (
-// 				// 	preElement.tagName !== 'pre' ||
-// 				// 	!('data-rehype-pretty-code-title' in titleElement.properties)
-// 				// ) {
-// 				// 	return;
-// 				// }
-
-// 				// if (titleElement.children.length > 0 && 'value' in titleElement.children[0]) {
-// 				// 	preElement.properties['__title__'] = titleElement.children[0].value;
-// 				// 	node.children.shift();
-// 				// }
-// 			}
-// 		});
-// 	};
-// }
 
 function rehypeHandleMetadata() {
 	return async (tree) => {
@@ -326,55 +280,24 @@ function rehypeHandleMetadata() {
 					return;
 				}
 
-				// console.log(node.children[1]);
+				const titleElement = node.children[0];
+				const preElement = node.children.at(-1);
 
-				// Find the title text from the figure element
-				// let title = '';
-				// const figcaptionNode = node.children.find((child) => child.tagName === 'figcaption');
-				// if (figcaptionNode) {
-				// 	title = figcaptionNode.properties['data-rehype-pretty-code-title'] || '';
-				// }
+				if (
+					preElement.tagName !== 'pre' ||
+					!('data-rehype-pretty-code-title' in titleElement.properties)
+				) {
+					return;
+				}
 
-				const title = node.children[0].children[0].value
-
-				if (node.children[1].type === 'element' && node.children[1].tagName === 'pre') { 
-					node.children[1].properties['__title__'] = title;
-				 }
+				if (titleElement.children.length > 0 && 'value' in titleElement.children[0]) {
+					preElement.properties['title'] = titleElement.children[0].value;
+					node.children.shift();
+				}
 			}
 		});
 	};
 }
-
-// function rehypeRenderCode() {
-// 	return async (tree) => {
-// 		visit(tree, (node) => {
-// 			if (
-// 				node?.type === 'element' &&
-// 				(node?.tagName === 'Components.pre' || node?.tagName === 'pre')
-// 			) {
-// 				const codeEl = node.children[0];
-// 				if (codeEl.type === 'element' && codeEl.tagName !== 'code') {
-// 					return;
-// 				}
-
-// 				if (codeEl.type === 'element') {
-// 					const meltString = tabsToSpaces(
-// 						toHtml(codeEl, {
-// 							allowDangerousCharacters: true,
-// 							allowDangerousHtml: true
-// 						})
-// 					);
-
-// 					//@ts-expect-error we're modifying the node type
-// 					codeEl.type = 'raw';
-// 					//@ts-expect-error this is now a raw node which has a value property
-// 					codeEl.value = `{@html \`${escapeSvelte(meltString)}\`}`;
-// 				}
-// 			}
-// 		});
-// 	};
-// }
-
 
 function rehypeRenderCode() {
 	return async (tree) => {
