@@ -1,0 +1,215 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--background: 0 0% 100%;
+		--foreground: 240 10% 3.9%;
+
+		--muted: 240 4.8% 95.9%;
+		--muted-foreground: 240 3.8% 46.1%;
+
+		--popover: 0 0% 100%;
+		--popover-foreground: 240 10% 3.9%;
+
+		--card: 0 0% 100%;
+		--card-foreground: 240 10% 3.9%;
+
+		--border: 240 5.9% 90%;
+		--input: 240 5.9% 90%;
+
+		--primary: 240 5.9% 10%;
+		--primary-foreground: 0 0% 98%;
+
+		--secondary: 240 4.8% 95.9%;
+		--secondary-foreground: 240 5.9% 10%;
+
+		--accent: 240 4.8% 95.9%;
+		--accent-foreground: 240 5.9% 10%;
+
+		--destructive: 0 72.2% 50.6%;
+		--destructive-foreground: 0 0% 98%;
+
+		--ring: 240 10% 3.9%;
+
+		--radius: 0.5rem;
+	}
+
+	.dark {
+		--background: 240 10% 3.9%;
+		--foreground: 0 0% 98%;
+
+		--muted: 240 3.7% 15.9%;
+		--muted-foreground: 240 5% 64.9%;
+
+		--popover: 240 10% 3.9%;
+		--popover-foreground: 0 0% 98%;
+
+		--card: 240 10% 3.9%;
+		--card-foreground: 0 0% 98%;
+
+		--border: 240 3.7% 15.9%;
+		--input: 240 3.7% 15.9%;
+
+		--primary: 0 0% 98%;
+		--primary-foreground: 240 5.9% 10%;
+
+		--secondary: 240 3.7% 15.9%;
+		--secondary-foreground: 0 0% 98%;
+
+		--accent: 240 3.7% 15.9%;
+		--accent-foreground: 0 0% 98%;
+
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 0 0% 98%;
+
+		--ring: 240 4.9% 83.9%;
+	}
+
+	::selection {
+		@apply bg-black text-white;
+	}
+
+	body {
+		@apply font-sans text-base text-gray-900;
+	}
+
+	html {
+		@apply overflow-hidden scroll-smooth antialiased;
+		text-size-adjust: 100%;
+		text-rendering: optimizeLegibility;
+	}
+
+	article {
+		@apply flex flex-col;
+	}
+
+	p {
+		@apply mb-6 leading-slacker;
+	}
+
+	a,
+	button {
+		@apply cursor-pointer outline-none;
+	}
+
+	a {
+		@apply transition-colors duration-300;
+	}
+
+	h1,
+	h2,
+	h3 {
+		@apply scroll-mt-16 font-semibold slashed-zero tracking-tighter text-black lg:scroll-mt-8;
+	}
+
+	h1 {
+		@apply text-2xl md:text-3xl;
+	}
+
+	h2 {
+		@apply text-lg md:text-xl;
+	}
+
+	h3 {
+		@apply md:text-lg;
+	}
+
+	h2 + h3 {
+		@apply !mt-0;
+	}
+
+	ol > li::marker {
+		@apply font-semibold;
+	}
+
+	ul > li {
+		@apply pl-2;
+	}
+
+	ul > li::marker {
+		@apply text-gray-400;
+	}
+
+	li div {
+		@apply inline;
+	}
+
+	li p,
+	li div,
+	li h1,
+	li h2 {
+		@apply my-0;
+	}
+
+	hr {
+		@apply my-6 border-gray-200;
+	}
+
+	img,
+	object {
+		@apply rounded-xl border;
+	}
+}
+
+@layer base {
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply h-screen bg-background text-foreground;
+	}
+}
+
+@layer components {
+	.content-wrapper {
+		@apply z-[1] w-full px-6 pb-8 pt-8 lg:px-8 lg:pb-16 lg:pt-24;
+	}
+
+	.content {
+		@apply mx-auto w-full lg:mb-0 lg:max-w-[52rem];
+	}
+
+	.thumbnail-shadow {
+		box-shadow:
+			0 0 0 0.5px #e2e8f0,
+			0 0 0 1px rgba(226, 232, 240, 0.5),
+			0 0 0 3px #f8fafc,
+			0 0 0 3.5px #f1f5f9,
+			0 10px 15px -3px rgb(59 130 246/5%),
+			0 4px 6px -4px rgb(59 130 246/5%);
+	}
+
+	.scrollable-area {
+		@apply h-full max-h-dynamic-screen min-h-dynamic-screen overflow-y-auto overflow-x-hidden;
+	}
+
+	.bg-dots {
+		@apply bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px];
+	}
+
+	.bg-grid {
+		@apply bg-white bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px];
+	}
+
+	.word-break-word {
+		word-break: break-word;
+	}
+}
+
+::-webkit-scrollbar {
+	@apply w-0;
+	@apply h-0;
+}
+
+::-webkit-scrollbar-track {
+	@apply hidden !bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+	@apply hidden rounded-xl !bg-border;
+}
+
+::-webkit-scrollbar-corner {
+	background: rgba(0, 0, 0, 0);
+}
