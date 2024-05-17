@@ -4,6 +4,7 @@
 	import { Badge } from '$lib/components/ui/badge';
 	import * as HoverCard from '$lib/components/ui/hover-card';
 	import { cn, formatDate } from '$lib/utils';
+	import { seriesPostCoverFolder } from '$lib/stores';
 
 	export let post: Post | Series;
 	export let title: string;
@@ -18,6 +19,9 @@
 	class="thumbnail-shadow relative flex aspect-auto min-w-0 cursor-pointer flex-col gap-4 overflow-hidden rounded-xl bg-white p-4 transition-colors duration-300 hover:bg-gray-100"
 	href={`/writing/${post.slug}`}
 	data-sveltekit-preload-data
+	on:click={() => {
+		$seriesPostCoverFolder = '';
+	}}
 >
 	{#if isSeries(post)}
 		<HoverCard.Root openDelay={400}>

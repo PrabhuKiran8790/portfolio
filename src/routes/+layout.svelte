@@ -1,10 +1,8 @@
 <script lang="ts">
-	import { owner, socials } from '$lib/config';
-	import '../app.pcss';
-	import { routes } from '$lib/config';
-	import NavigationLink from '$lib/components/site/navigation-link.svelte';
 	import { onNavigate } from '$app/navigation';
-	import { MenuContent, Navbar, ScrollArea } from '$lib/components/site';
+	import { MenuContent, Navbar } from '$lib/components/site';
+	import '../app.pcss';
+	import { Toaster } from '$lib/components/ui/sonner';
 
 	const preparePageTransition = () => {
 		onNavigate((navigation) => {
@@ -20,6 +18,8 @@
 
 	preparePageTransition();
 </script>
+
+<Toaster />
 
 <div class="fixed h-full w-full lg:flex" data-vaul-drawer-wrapper>
 	<div

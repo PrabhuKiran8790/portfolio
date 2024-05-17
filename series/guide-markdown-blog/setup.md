@@ -87,12 +87,12 @@ In this section we'll dicsuss about how to setup quicky and get started.
 
 To install, clone the repo using
 
-```shell
+```bash
 git clone https://github.com/PrabhuKiran8790/prabhukirankonda-portfolio.git
 ```
 install the node modules
 
-```shell
+```bash
 cd prabhukirankonda-portfolio && pnpm i
 ```
 and start editing the following files

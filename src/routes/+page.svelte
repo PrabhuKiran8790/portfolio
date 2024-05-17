@@ -4,7 +4,7 @@
 	import { Masonry } from '$lib/components/site';
 	import { work } from '$lib/config';
 	import Scrollarea from '$lib/components/site/scrollarea.svelte';
-	import { headerTitle } from '$lib/stores.js';
+	import { headerTitle } from '$lib/stores';
 
 	export let data;
 

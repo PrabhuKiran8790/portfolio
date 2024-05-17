@@ -31,7 +31,8 @@
 	export let image;
 	export let draft;
 	export let icon;
-	export let useIconInHome
+	export let useIconInHome;
+	export let order;
 </script>
 
 <svelte:head>
@@ -43,4 +44,4 @@
 	/>
 </svelte:head>
 
-<slot {title} {date} {description} {tags} {image} {draft} {icon} {useIconInHome}/>
+<slot {title} {date} {description} {tags} {image} {draft} {icon} {useIconInHome} {order} />

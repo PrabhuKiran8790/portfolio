@@ -26,9 +26,9 @@ dependencies:
   lucide-svelte:
     specifier: ^0.376.1
     version: 0.376.1(svelte@4.2.15)
-  mdsx:
-    specifier: ^0.0.5
-    version: 0.0.5(svelte@4.2.15)
+  mode-watcher:
+    specifier: ^0.3.0
+    version: 0.3.0(svelte@4.2.15)
   rehype-katex:
     specifier: ^7.0.0
     version: 7.0.0
@@ -50,15 +50,12 @@ dependencies:
   shiki:
     specifier: ^1.5.1
     version: 1.5.1
-  shiki-es:
-    specifier: ^0.14.0
-    version: 0.14.0
   svelte-action-balancer:
     specifier: ^1.0.4
     version: 1.0.4
-  svelte-french-toast:
-    specifier: ^1.2.0
-    version: 1.2.0(svelte@4.2.15)
+  svelte-sonner:
+    specifier: ^0.3.24
+    version: 0.3.24(svelte@4.2.15)
   tailwind-merge:
     specifier: ^2.3.0
     version: 2.3.0
@@ -1498,13 +1495,6 @@ packages:
       estraverse: 5.3.0
     dev: true
 
-  /esrap@1.2.2:
-    resolution: {integrity: sha512-F2pSJklxx1BlQIQgooczXCPHmcWpn6EsP5oo73LQfonG9fIlIENQ8vMmfGXeojP9MrkzUNAfyU5vdFlR9shHAw==}
-    dependencies:
-      '@jridgewell/sourcemap-codec': 1.4.15
-      '@types/estree': 1.0.5
-    dev: false
-
   /esrecurse@4.3.0:
     resolution: {integrity: sha512-KmfKL3b6G+RXvP8N1vr3Tq1kL/oCFgn2NYXEtqP8/L3pKapUA4G8cFVaoF3SU323CD4XypR/ffioHmkti6/Tag==}
     engines: {node: '>=4.0'}
@@ -2200,28 +2190,6 @@ packages:
   /mdn-data@2.0.30:
     resolution: {integrity: sha512-GaqWWShW4kv/G9IEucWScBx9G1/vsFZZJUO+tD26M8J8z3Kw5RDQjaoZe03YAClgeS/SWPOcb4nkFBTEi5DUEA==}
 
-  /mdsx@0.0.5(svelte@4.2.15):
-    resolution: {integrity: sha512-crYbZC0L5kQjaRABvHIXj9H2O1qikIw9KKqS3bo2En4XVgvHH7TO5bJ2X86PxJK7H6QEBAubjUma9+qpbsPC5A==}
-    peerDependencies:
-      svelte: ^4.0.0
-    dependencies:
-      esrap: 1.2.2
-      hast-util-to-html: 9.0.1
-      magic-string: 0.30.10
-      mdast-util-to-markdown: 2.1.0
-      rehype-stringify: 10.0.0
-      remark-parse: 11.0.0
-      remark-rehype: 11.1.0
-      svelte: 4.2.15
-      unified: 11.0.4
-      unist-util-visit: 5.0.0
-      vfile: 6.0.1
-      yaml: 2.4.2
-      zimmerframe: 1.1.2
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
   /merge2@1.4.1:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
     engines: {node: '>= 8'}
@@ -2523,6 +2491,14 @@ packages:
     dependencies:
       minimist: 1.2.8
     dev: true
+
+  /mode-watcher@0.3.0(svelte@4.2.15):
+    resolution: {integrity: sha512-k8jjuTx94HaaRKWO6JDf8wL761hFatrTIHJKl+E+3JWcnv+GnMBH062zcLsy0lbCI3n7RZxxHaWi66auFnUO4g==}
+    peerDependencies:
+      svelte: ^4.0.0
+    dependencies:
+      svelte: 4.2.15
+    dev: false
 
   /mri@1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
@@ -2953,14 +2929,6 @@ packages:
       unist-util-visit: 5.0.0
     dev: false
 
-  /rehype-stringify@10.0.0:
-    resolution: {integrity: sha512-1TX1i048LooI9QoecrXy7nGFFbFSufxVRAfc6Y9YMRAi56l+oB0zP51mLSV312uRuvVLPV1opSlJmslozR1XHQ==}
-    dependencies:
-      '@types/hast': 3.0.4
-      hast-util-to-html: 9.0.1
-      unified: 11.0.4
-    dev: false
-
   /remark-gfm@4.0.0:
     resolution: {integrity: sha512-U92vJgBPkbw4Zfu/IiW2oTZLSL3Zpv+uI7My2eq8JxKgqraFdU8YUGicEJCEgSbeaG+QDFqIcwwfMTOEelPxuA==}
     dependencies:
@@ -2994,16 +2962,6 @@ packages:
       unified: 11.0.4
     transitivePeerDependencies:
       - supports-color
-    dev: false
-
-  /remark-rehype@11.1.0:
-    resolution: {integrity: sha512-z3tJrAs2kIs1AqIIy6pzHmAHlF1hWQ+OdY4/hv+Wxe35EhyLKcajL33iUEn3ScxtFox9nUvRufR/Zre8Q08H/g==}
-    dependencies:
-      '@types/hast': 3.0.4
-      '@types/mdast': 4.0.3
-      mdast-util-to-hast: 13.1.0
-      unified: 11.0.4
-      vfile: 6.0.1
     dev: false
 
   /remark-stringify@11.0.0:
@@ -3121,11 +3079,6 @@ packages:
   /shebang-regex@3.0.0:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
-
-  /shiki-es@0.14.0:
-    resolution: {integrity: sha512-e+/aueHx0YeIEut6RXC6K8gSf0PykwZiHD7q7AHtpTW8Kd8TpFUIWqTwhAnrGjOyOMyrwv+syr5WPagMpDpVYQ==}
-    deprecated: Please migrate to https://github.com/antfu/shikiji
-    dev: false
 
   /shiki@1.5.1:
     resolution: {integrity: sha512-vx4Ds3M3B9ZEmLeSXqBAB85osBWV8ErZfP69kuFQZozPgHc33m7spLTCUkcjwEjFm3gk3F9IdXMv8kX+v9xDHA==}
@@ -3288,15 +3241,6 @@ packages:
       svelte: 4.2.15
     dev: true
 
-  /svelte-french-toast@1.2.0(svelte@4.2.15):
-    resolution: {integrity: sha512-5PW+6RFX3xQPbR44CngYAP1Sd9oCq9P2FOox4FZffzJuZI2mHOB7q5gJBVnOiLF5y3moVGZ7u2bYt7+yPAgcEQ==}
-    peerDependencies:
-      svelte: ^3.57.0 || ^4.0.0
-    dependencies:
-      svelte: 4.2.15
-      svelte-writable-derived: 3.1.1(svelte@4.2.15)
-    dev: false
-
   /svelte-hmr@0.16.0(svelte@4.2.15):
     resolution: {integrity: sha512-Gyc7cOS3VJzLlfj7wKS0ZnzDVdv3Pn2IuVeJPk9m2skfhcu5bq3wtIZyQGggr7/Iim5rH5cncyQft/kRLupcnA==}
     engines: {node: ^12.20 || ^14.13.1 || >= 16}
@@ -3355,10 +3299,10 @@ packages:
       typescript: 5.4.5
     dev: true
 
-  /svelte-writable-derived@3.1.1(svelte@4.2.15):
-    resolution: {integrity: sha512-w4LR6/bYZEuCs7SGr+M54oipk/UQKtiMadyOhW0PTwAtJ/Ai12QS77sLngEcfBx2q4H8ZBQucc9ktSA5sUGZWw==}
+  /svelte-sonner@0.3.24(svelte@4.2.15):
+    resolution: {integrity: sha512-txuL0JBUs0v6qGrr0PGCsbXmKHuthdrAkfISYi8umuveF7+gINb6EXl6VmKY9aHhyxCqvVgqd6yophQNrnor4w==}
     peerDependencies:
-      svelte: ^3.2.1 || ^4.0.0-next.1 || ^5.0.0-next.94
+      svelte: '>=3 <5'
     dependencies:
       svelte: 4.2.15
     dev: false
@@ -3737,10 +3681,6 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
-
-  /zimmerframe@1.1.2:
-    resolution: {integrity: sha512-rAbqEGa8ovJy4pyBxZM70hg4pE6gDgaQ0Sl9M3enG3I0d6H4XSAM3GeNGLKnsBpuijUow064sf7ww1nutC5/3w==}
-    dev: false
 
   /zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}

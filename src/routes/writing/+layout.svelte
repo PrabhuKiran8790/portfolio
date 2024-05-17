@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { headerTitle } from '$lib/stores.js';
+	import { headerTitle, seriesPostCoverFolder } from '$lib/stores.js';
 	import { PostsList } from '$lib/components/site';
 	export let data;
 

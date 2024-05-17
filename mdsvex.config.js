@@ -292,6 +292,7 @@ function rehypeHandleMetadata() {
 
 				if (titleElement.children.length > 0 && 'value' in titleElement.children[0]) {
 					preElement.properties['title'] = titleElement.children[0].value;
+					preElement.properties['language'] = node.children[0].properties['data-language'];
 					node.children.shift();
 				}
 			}
