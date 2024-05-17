@@ -14,6 +14,7 @@
 	class="inline-flex items-center gap-1 underline underline-offset-4 transition-colors"
 	{href}
 	{target}
+	{rel}
 >
 	<slot />
 	{#if !internal}

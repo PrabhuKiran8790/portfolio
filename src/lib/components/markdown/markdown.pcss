@@ -35,6 +35,27 @@ code[data-theme*=' '] span {
 	}
 }
 
+
+.mdsvex .code-add {
+	@apply bg-green-600/40;
+}
+
+.mdsvex .code-delete {
+	@apply bg-red-400/30;
+}
+
+.mdsvex span.code-add::before {
+	content: '+';
+	margin-left: -10px;
+	@apply text-green-700 dark:text-[#2ecc71];
+}
+
+.mdsvex span.code-delete::before {
+	content: '-';
+	color: #e74c3c;
+	margin-left: -10px;
+}
+
 /* 
 p > code {
 	@apply bg-slate-200 dark:bg-zinc-700/70 px-1 rounded-md mx-1 border border-primary font-mono tracking-wide text-base;

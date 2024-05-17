@@ -16,9 +16,6 @@ So, let’s have a brief introduction to Auto-encoders.
 
 ## What in the world are Auto-encoders
 
-`console.log("hello"){:js}` in js to print hello
-
-
 **Auto-encoders** are a branch of neural networks which basically compresses the information of the input variables into a reduced dimensional space and then it recreate the input data set to train it all over again.
 
 Auto-encoder consists of 3 main components
@@ -66,7 +63,7 @@ X_train_df
 
 Let’s build an auto-encoder with a code size of 6.
 
-```py title="autoencoder.py" {1,2}#add {3, 4}#delete
+```py title="autoencoder.py"
 import tensorflow as tf
 from tensorflow.keras.layers import Input, Dense
 from tensorflow.keras.models import Model
@@ -97,7 +94,7 @@ autoencoder.summary()
 
 let's train the model
 
-```py title="autoencoder______.py"
+```py title="autoencoder.py"
 history = autoencoder.fit(X_train_df,
                           X_train_df,
                           epochs=100,
