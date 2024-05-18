@@ -19,7 +19,7 @@
 			/>
 			<div class="flex flex-col">
 				<span class="font-semibold tracking-tight">{owner.name}</span>
-				<span class="text-gray-600">{owner.title}</span>
+				<span class="text-xs font-normal text-gray-600 lg:text-sm">{owner.title}</span>
 			</div>
 		</a>
 	</div>
