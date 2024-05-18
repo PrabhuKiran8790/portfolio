@@ -18,7 +18,7 @@
 <a
 	{href}
 	class={cn(
-		'group flex items-center justify-between rounded-lg p-2 transition-colors duration-300',
+		'group flex items-center justify-between rounded-lg p-2 text-sm transition-colors duration-300',
 		isActive ? 'bg-black text-white' : 'hover:bg-gray-200'
 	)}
 	target={isExternal ? '_blank' : ''}

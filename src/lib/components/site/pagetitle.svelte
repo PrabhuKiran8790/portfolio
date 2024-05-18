@@ -10,7 +10,7 @@
 </script>
 
 <div class={cn('mb-6', className)}>
-	<h1 use:balancer>
+	<h1 use:balancer id="BlogTitle">
 		{title}
 	</h1>
 	{subtitle}

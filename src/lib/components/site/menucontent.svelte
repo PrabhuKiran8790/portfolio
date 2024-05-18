@@ -39,7 +39,7 @@
 
 	<div class="-mt-3 flex flex-col p-2">
 		<hr />
-		<div class="flex flex-col gap-2 text-sm">
+		<div class="flex flex-col gap-2">
 			<span class="px-2 text-xs font-medium leading-relaxed text-gray-600">Find me on</span>
 			<div class="flex flex-col gap-1">
 				{#each socials as social}

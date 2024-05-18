@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { PageTitle } from '$lib/components/site';
+	import { headerTitle } from '$lib/stores.js';
 
 	export let data;
 
@@ -8,6 +9,7 @@
 	$: {
 		content = data.content;
 		meta = data.meta;
+		$headerTitle = meta.title;
 	}
 </script>
 

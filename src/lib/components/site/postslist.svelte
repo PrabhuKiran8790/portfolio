@@ -39,7 +39,7 @@
 <Tabs.Root
 	value={!isSeriesPost ? ($seriesPostCoverFolder ? 'series' : 'posts') : 'series'}
 	let:value
-	class="mx-2"
+	class="mx-2 text-sm"
 >
 	<Tabs.List class="mt-1 w-full bg-zinc-200">
 		<Tabs.Trigger value="posts" class="relative w-full">

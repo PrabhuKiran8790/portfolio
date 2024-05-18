@@ -1,4 +1,5 @@
 <script>
+	import { headerTitle } from '$lib/stores';
 	import { PostsList } from '$lib/components/site';
 	import { seriesPostCoverFolder } from '$lib/stores';
 	import { Card, Masonry } from '$lib/components/site';
@@ -9,6 +10,10 @@
 	$: item = data.seriesPosts.filter((post) => {
 		return post.coverFolder === $seriesPostCoverFolder;
 	})[0];
+
+	$: {
+		$headerTitle = 'Writing';
+	}
 </script>
 
 <div class="lg:hidden">
@@ -18,18 +23,25 @@
 <div class="hidden h-full lg:block">
 	{#if $seriesPostCoverFolder}
 		<div class="flex h-full flex-col items-center justify-center">
-			<div>
-				<h1>{item.title}</h1>
-				<p>{item.description}</p>
-			</div>
-
 			<div class="p-24">
-				<Masonry items={item['subPosts']} gridGap={'1rem'} stretchFirst={false} reset>
-					{#each item['subPosts'] as post}
-						<Card title={post.title} image={post.image} {post} />
-					{/each}
-				</Masonry>
+				<div>
+					<h1>{item.title}</h1>
+					<p>{item.description}</p>
+				</div>
+				<div class="scrollable-area__">
+					<Masonry items={item['subPosts']} gridGap={'1rem'} stretchFirst={false} reset>
+						{#each item['subPosts'] as post}
+							<Card title={post.title} image={post.image} {post} />
+						{/each}
+					</Masonry>
+				</div>
 			</div>
 		</div>
 	{/if}
 </div>
+
+<style lang="postcss">
+	.scrollable-area__ {
+		@apply h-full max-h-[70dvh] min-h-[40dvh] overflow-y-auto overflow-x-hidden;
+	}
+</style>

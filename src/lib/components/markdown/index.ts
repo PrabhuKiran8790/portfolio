@@ -12,3 +12,4 @@ export { default as ul } from './ul.svelte';
 export { default as ol } from './ol.svelte';
 export { default as hr } from './hr.svelte';
 export { default as img } from './img.svelte';
+export { default as ToastCodeTitle } from './toast-code-title.svelte';

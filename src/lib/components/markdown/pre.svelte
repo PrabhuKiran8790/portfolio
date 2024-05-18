@@ -7,6 +7,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import { langIcons } from './icons';
 	import { cn } from '$lib/utils';
+	import { ToastCodeTitle } from '.';
 
 	let className: string | undefined | null = undefined;
 	export let title = '';
@@ -19,7 +20,20 @@
 	const handleCopy = () => {
 		if (codeElement) {
 			navigator.clipboard.writeText(codeElement.innerText ?? '');
-			toast.success('Copied to clipboard');
+			if (title) {
+				const extension = title.split('.').pop();
+				if (extension && langIcons[extension]) {
+					toast.success(ToastCodeTitle, {
+						componentProps: {
+							title,
+							src: langIcons[extension].src,
+							className: langIcons[extension].class
+						}
+					});
+				}
+			} else {
+				toast.success('Copied to clipboard');
+			}
 		}
 		copyState = true;
 		setTimeout(() => {
@@ -87,12 +101,12 @@
 	<div>
 		<Button class="h-7 rounded-lg" size="sm" variant="outline" on:click={handleCopy}>
 			{#if copyState}
-				<span in:fly={{ y: -4, delay: 50 }} class="inline-flex items-center justify-between gap-2">
+				<span in:fly={{ x: -4, delay: 50 }} class="inline-flex items-center justify-between gap-2">
 					Copied
 					<CopyCheck class="size-3.5 text-black" />
 				</span>
 			{:else}
-				<span in:fly={{ y: 4, delay: 50 }} class="inline-flex items-center justify-between gap-2"
+				<span in:fly={{ x: 4, delay: 50 }} class="inline-flex items-center justify-between gap-2"
 					>Copy <Copy class="size-3.5 text-black" /></span
 				>
 			{/if}
