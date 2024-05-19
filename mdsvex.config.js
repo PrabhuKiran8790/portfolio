@@ -117,7 +117,7 @@ const prettyCodeOptions = {
 		// light: JSON.parse(
 		// 	readFileSync(resolve(__dirname, './src/lib/styles/themes/tokyo-night-light.json'), 'utf-8')
 		// )
-		light: 'min-light',
+		light: 'min-light'
 	},
 	keepBackground: false, // to use our own background color
 	onVisitLine(node) {
@@ -271,7 +271,6 @@ function rehypePreToComponentPre() {
 	};
 }
 
-
 function rehypeHandleMetadata() {
 	return async (tree) => {
 		visit(tree, (node) => {
@@ -290,6 +289,12 @@ function rehypeHandleMetadata() {
 					return;
 				}
 
+				const codeElement = preElement.children.find((child) => child.tagName === 'code');
+
+				if (codeElement) {
+					processCustomCodeBlockHighlights(codeElement.children);
+				}
+
 				if (titleElement.children.length > 0 && 'value' in titleElement.children[0]) {
 					preElement.properties['title'] = titleElement.children[0].value;
 					preElement.properties['language'] = node.children[0].properties['data-language'];
@@ -298,6 +303,55 @@ function rehypeHandleMetadata() {
 			}
 		});
 	};
+}
+
+function processCustomCodeBlockHighlights(children) {
+	children.forEach((child) => {
+		if (child.type === 'element' && child.tagName === 'span' && 'data-line' in child.properties) {
+			let shouldAddHighlight = false;
+			let shouldRemoveHighlight = false;
+
+			child.children.forEach((innerChild) => {
+				if (innerChild.type === 'element' && innerChild.tagName === 'span') {
+					const textNode = innerChild.children.find((c) => c.type === 'text');
+					if (textNode && textNode.value) {
+						if (
+							textNode.value.includes('# [!code ++]') ||
+							textNode.value.includes('// [!code ++]')
+						) {
+							shouldAddHighlight = true;
+							textNode.value = textNode.value
+								.replace('# [!code ++]', '')
+								.replace('// [!code ++]', '')
+								.trim();
+						} else if (
+							textNode.value.includes('# [!code --]') ||
+							textNode.value.includes('// [!code --]')
+						) {
+							shouldRemoveHighlight = true;
+							textNode.value = textNode.value
+								.replace('# [!code --]', '')
+								.replace('// [!code --]', '')
+								.trim();
+						}
+					}
+				}
+			});
+
+			if (shouldAddHighlight) {
+				child.properties['data-highlighted-line-id'] = 'add';
+				child.properties['data-highlighted-line'] = '';
+			} else if (shouldRemoveHighlight) {
+				child.properties['data-highlighted-line-id'] = 'remove';
+				child.properties['data-highlighted-line'] = '';
+			}
+		}
+
+		// Recursively traverse inner children
+		if (child.children && child.children.length > 0) {
+			processCustomCodeBlockHighlights(child.children);
+		}
+	});
 }
 
 function rehypeRenderCode() {
@@ -325,7 +379,6 @@ function rehypeRenderCode() {
 		});
 	};
 }
-
 
 /**
  *
