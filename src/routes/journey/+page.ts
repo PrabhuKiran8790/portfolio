@@ -3,9 +3,9 @@ export const load = async () => {
 
 	const years = Object.keys(data)
 		.map((path) => path.match(/\/(\d{4})\//)?.[1])
-		.filter((year): year is string => year !== null) // Ensure TypeScript recognizes year is a string
+		.filter((year): year is string => year !== null)
 		.map((year) => Number(year))
-		.sort((a, b) => b - a); // Sort in descending order
+		.sort((a, b) => b - a);
 
 	const journeyByYear: { [year: string]: unknown[] } = {};
 
@@ -13,8 +13,6 @@ export const load = async () => {
 		const paths = Object.keys(data).filter((path) => path.includes(`/${year}/`));
 		journeyByYear[year.toString()] = paths.map((path) => data[path]);
 	});
-
-	console.log(journeyByYear);
 
 	for (const year in journeyByYear) {
 		if (Array.isArray(journeyByYear[year])) {

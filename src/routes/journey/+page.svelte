@@ -2,6 +2,7 @@
 	import { cn } from '$lib/utils';
 	import { headerTitle } from '$lib/stores';
 	import { PlusIcon } from 'lucide-svelte';
+	import { PageTitle } from '$lib/components/site';
 	export let data;
 
 	$: {
@@ -14,9 +15,12 @@
 </script>
 
 <div class="scrollable-area relative flex w-full flex-col">
-	<div class="gradientBg3">
+	<div
+		class="bg-white bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.13)_0,rgba(0,163,255,0)_50%,rgba(0,163,255,0)_100%)]"
+	>
 		<div class="content-wrapper">
 			<div class="content mb-20">
+				<PageTitle title={$headerTitle} />
 				<div class="flex flex-col items-stretch gap-12">
 					{#each data.years as year, itemIndex}
 						{@const item = data.journeyByYear[year]}

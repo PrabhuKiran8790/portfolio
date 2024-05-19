@@ -22,7 +22,7 @@
 
 <div class="hidden h-full lg:block">
 	{#if $seriesPostCoverFolder}
-		<div class="flex h-full flex-col items-center justify-center">
+		<div class="flex h-full flex-col items-center justify-center bg-grid">
 			<div class="p-24">
 				<div>
 					<h1>{item.title}</h1>
