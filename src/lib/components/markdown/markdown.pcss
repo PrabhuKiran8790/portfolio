@@ -9,6 +9,10 @@ code[data-theme*=' '] span {
 	background-color: var(--shiki-light-bg);
 }
 
+.journey p {
+	@apply text-sm;
+}
+
 [data-rehype-pretty-code-figure] [data-line-numbers] > [data-line]::before {
 	@apply text-xs text-black;
 	counter-increment: line;

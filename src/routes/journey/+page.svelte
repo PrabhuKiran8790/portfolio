@@ -1,13 +1,64 @@
 <script lang="ts">
+	import { cn } from '$lib/utils';
 	import { headerTitle } from '$lib/stores';
+	import { PlusIcon } from 'lucide-svelte';
+	export let data;
 
 	$: {
 		$headerTitle = 'Journey';
+	}
+
+	function last(index: number, array: any[]) {
+		return index === array.length - 1;
 	}
 </script>
 
 <div class="scrollable-area relative flex w-full flex-col">
 	<div class="gradientBg3">
-		<h2>hi</h2>
+		<div class="content-wrapper">
+			<div class="content mb-20">
+				<div class="flex flex-col items-stretch gap-12">
+					{#each data.years as year, itemIndex}
+						{@const item = data.journeyByYear[year]}
+						<div class="flex flex-col items-baseline gap-6 md:flex-row md:gap-12">
+							<div class="flex items-center">
+								<h2>{year}</h2>
+								<hr class="my-0 ml-4 flex-1 border-dashed border-gray-200" />
+							</div>
+							<section>
+								{#each item as journey, logIndex}
+									<div
+										class={cn(
+											'relative flex pb-8',
+											last(logIndex, item) && 'last:pb-0',
+											'last:pb-0'
+										)}
+									>
+										{#if !last(logIndex, item)}
+											<div class="absolute inset-0 flex w-6 items-center justify-center">
+												<div class="pointer-events-none h-full w-px border-l border-gray-200"></div>
+											</div>
+										{/if}
+										<div
+											class="z-0 flex size-6 shrink-0 items-center justify-center rounded-full bg-black align-middle text-white"
+										>
+											<PlusIcon size={16} />
+										</div>
+										<div class="grow pl-8">
+											<div class="word-break-word flex flex-col">
+												<span class="font-semibold tracking-tight">{journey.metadata.title}</span>
+												<div class="journey">
+													<svelte:component this={journey.default} />
+												</div>
+											</div>
+										</div>
+									</div>
+								{/each}
+							</section>
+						</div>
+					{/each}
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
