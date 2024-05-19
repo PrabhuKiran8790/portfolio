@@ -25,11 +25,6 @@
 <div
 	class="sticky inset-x-0 top-0 z-10 mx-auto flex h-12 w-full shrink-0 items-center overflow-hidden border-b bg-white text-sm font-medium lg:hidden"
 >
-	<div class="absolute inset-0 h-full">
-		<div class="relative h-full w-full">
-			<div class="gradient"></div>
-		</div>
-	</div>
 	<div class="z-20 flex h-full w-full items-center justify-between px-6">
 		<button
 			class="flex items-center gap-3"
