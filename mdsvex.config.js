@@ -289,11 +289,11 @@ function rehypeHandleMetadata() {
 					return;
 				}
 
-				const codeElement = preElement.children.find((child) => child.tagName === 'code');
+				// const codeElement = preElement.children.find((child) => child.tagName === 'code');
 
-				if (codeElement) {
-					processCustomCodeBlockHighlights(codeElement.children);
-				}
+				// if (codeElement) {
+				// 	processCustomCodeBlockHighlights(codeElement.children);
+				// }
 
 				if (titleElement.children.length > 0 && 'value' in titleElement.children[0]) {
 					preElement.properties['title'] = titleElement.children[0].value;
@@ -366,6 +366,10 @@ function rehypeRenderCode() {
 					return;
 				}
 
+				if (codeEl && node.properties['data-language'] !== 'md') {
+					processCustomCodeBlockHighlights(codeEl.children);
+				}
+
 				const codeString = tabsToSpaces(
 					toHtml(codeEl, {
 						allowDangerousCharacters: true,
@@ -386,5 +390,5 @@ function rehypeRenderCode() {
  * @returns {string}
  */
 function tabsToSpaces(code) {
-	return code.replaceAll('    ', '  ').replaceAll('\t', '  ');
+	return code.replaceAll('    ', '    ').replaceAll('\t', '    ');
 }

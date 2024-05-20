@@ -173,22 +173,22 @@ you can highlight individual words in your code with different colors.
 ```py /fibonacci/1-2#rb {2-3}
 def fibonacci(n):
     if n <= 1: # base case
-        return n
+		return n
     else:
-return fibonacci(n - 2) + fibonacci(n - 3) # [!code --]
-return fibonacci(n - 1) + fibonacci(n - 2) # [!code ++]
+		return fibonacci(n - 2) + fibonacci(n - 3) # [!code --]
+		return fibonacci(n - 1) + fibonacci(n - 2) # [!code ++]
 ```
 ````
 
 this will become 
 
-```py /fibonacci/1-2#rb {2-3}
+```py {2-3} /fibonacci/1-2#rb
 def fibonacci(n):
-    if n <= 1: # base case
-        return n
+    if n <= 1:
+		return n
     else:
-return fibonacci(n - 2) + fibonacci(n - 3) # [!code --]
-return fibonacci(n - 1) + fibonacci(n - 2) # [!code ++]
+		return fibonacci(n - 2) + fibonacci(n - 3) # [!code --]
+		return fibonacci(n - 1) + fibonacci(n - 2) # [!code ++]
 ```
 
 for other languages, like js or ts

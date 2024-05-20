@@ -70,7 +70,7 @@
 </script>
 
 <div
-	class="mt-3 flex flex-wrap items-center justify-between gap-2 rounded-t-lg border border-gray-200 bg-gray-50 py-1.5 pl-4 pr-2"
+	class="mt-5 flex flex-wrap items-center justify-between gap-2 rounded-t-lg border border-gray-200 bg-gray-50 py-1.5 pl-4 pr-2"
 >
 	<div class="flex items-center gap-4">
 		<span class="inline-flex items-center gap-1.5">

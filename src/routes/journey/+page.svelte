@@ -49,9 +49,9 @@
 											<PlusIcon size={16} />
 										</div>
 										<div class="grow pl-8">
-											<div class="word-break-word flex flex-col">
+											<div class="word-break-word -mt-0.5 flex flex-col">
 												<span class="font-semibold tracking-tight">{journey.metadata.title}</span>
-												<div class="journey">
+												<div class="journey mt-1">
 													<svelte:component this={journey.default} />
 												</div>
 											</div>
