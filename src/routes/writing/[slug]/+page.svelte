@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import { PageTitle } from '$lib/components/site';
 	import { headerTitle } from '$lib/stores.js';
 	import { formatDate } from '$lib/utils.js';
@@ -18,6 +19,17 @@
 	<meta
 		property="og:image"
 		content={`https://v3-prabhukirankonda.vercel.app/social.png?title=${meta.title}`}
+	/>
+	<meta property="og:description" content={meta.description} />
+	<meta property="og:title" content={meta.title} />
+	<meta
+		property="twitter:image"
+		content={`https://v3-prabhukirankonda.vercel.app/social.png?title=${meta.title}`}
+	/>
+
+	<meta
+		property="og:url"
+		content={`https://v3-prabhukirankonda.vercel.app/writing/${$page.params.slug}`}
 	/>
 </svelte:head>
 
