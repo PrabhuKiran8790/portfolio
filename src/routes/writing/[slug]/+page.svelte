@@ -16,6 +16,8 @@
 </script>
 
 <svelte:head>
+	<title>{meta.title}</title>
+	<meta property="description" content={meta.description} />
 	<meta
 		property="og:image"
 		content={`https://v3-prabhukirankonda.vercel.app/social.png?title=${meta.title}`}
@@ -31,6 +33,9 @@
 		property="og:url"
 		content={`https://v3-prabhukirankonda.vercel.app/writing/${$page.params.slug}`}
 	/>
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:title" content={meta.title} />
+	<meta property="twitter:description" content={meta.description} />
 </svelte:head>
 
 <div class="scrollable-area bg-white">
