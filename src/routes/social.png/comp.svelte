@@ -47,7 +47,7 @@
 			position: absolute;
 			top: 60;
 			left: 60;
-			fontSize: 1.5rem;
+			fontSize: 2.5rem;
 			lineHeight: 1;
 			background: #000;
 			color: #fff;
@@ -72,9 +72,9 @@
 		<div style="display: flex; alignItems: center; gap: 1rem">
 			<span
 				style="
-					fontSize: 4rem;
+					fontSize: 5rem;
 					lineHeight: 1;
-					fontWeight: 500;
+					fontWeight: 600;
 				"
 			>
 				{title}
