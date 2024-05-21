@@ -37,6 +37,7 @@
 	"type": "module",
 	"dependencies": {
 		"@huntabyte/mdsvex": "^0.16.8",
+		"@resvg/resvg-js": "^2.6.2",
 		"@tailwindcss/container-queries": "^0.1.1",
 		"bits-ui": "^0.21.6",
 		"clsx": "^2.1.1",
@@ -50,6 +51,8 @@
 		"remark-gfm": "^4.0.0",
 		"remark-math": "^6.0.0",
 		"remark-unwrap-images": "^4.0.0",
+		"satori": "^0.10.13",
+		"satori-html": "^0.3.2",
 		"shiki": "^1.5.1",
 		"svelte-action-balancer": "^1.0.4",
 		"svelte-sonner": "^0.3.24",
