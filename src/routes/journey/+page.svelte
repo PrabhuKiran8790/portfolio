@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { cn } from '$lib/utils';
 	import { headerTitle } from '$lib/stores';
-	import { PlusIcon } from 'lucide-svelte';
+	import { Calendar, CalendarIcon, PlusIcon } from 'lucide-svelte';
 	import { PageTitle } from '$lib/components/site';
 	export let data;
 
@@ -51,7 +51,15 @@
 										<div class="grow pl-8">
 											<div class="word-break-word -mt-0.5 flex flex-col">
 												<span class="font-semibold tracking-tight">{journey.metadata.title}</span>
-												<div class="journey mt-1">
+												{#if journey.metadata.month}
+													<span class="flex items-center gap-1 text-xs text-muted-foreground">
+														<CalendarIcon class="size-3" />
+														<span class=" font-semibold tracking-tight"
+															>{journey.metadata.month}</span
+														>
+													</span>
+												{/if}
+												<div class="journey mt-1.5">
 													<svelte:component this={journey.default} />
 												</div>
 											</div>
