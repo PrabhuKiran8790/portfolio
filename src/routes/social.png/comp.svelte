@@ -60,7 +60,7 @@
 		Prabhu Kiran Konda
 	</div>
 	{#if isSeries}
-		<div class="absolute right-10 top-10 flex">
+		<div class="right-15 top-15 absolute flex">
 			{currentPart} / {totalParts}
 		</div>
 	{/if}
