@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onNavigate } from '$app/navigation';
+	import { goto, onNavigate } from '$app/navigation';
 	import { MenuContent, Navbar } from '$lib/components/site';
 	import '../app.pcss';
 	import { Toaster } from '$lib/components/ui/sonner';

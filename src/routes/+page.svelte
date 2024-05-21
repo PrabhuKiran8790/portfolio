@@ -18,8 +18,8 @@
 		<div class="content">
 			<PageTitle title="Home" class="lg:hidden" />
 			<p>
-				Hi 👋 I'm Prabhu Kiran, an Electrical Engineer, Software Developer and a writer based in
-				Hyderabad, India
+				Hi 👋 I'm Prabhu Kiran Konda, an Electrical Engineer, Software Developer and a writer based
+				in Hyderabad, India
 			</p>
 			<p>
 				Working as a {work.role} at {work.company}. I love training neural networks, building web

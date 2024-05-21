@@ -2,6 +2,17 @@
 	import { owner, socials } from '$lib/config';
 	import { routes } from '$lib/config';
 	import { NavigationLink } from '$lib/components/site';
+	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
+
+	onMount(() => {
+		document.addEventListener('keydown', (event) => {
+			if (event.key >= '1' && event.key <= `${routes.length}`) {
+				const index = parseInt(event.key) - 1;
+				goto(routes[index].path);
+			}
+		});
+	});
 </script>
 
 <div class="flex flex-col">
@@ -27,12 +38,13 @@
 	<!-- links -->
 
 	<div class="flex flex-col gap-1 p-2">
-		{#each routes as route}
+		{#each routes as route, index}
 			<NavigationLink
 				href={route.path}
 				name={route.name}
 				icon={route.icon}
 				iconClass={route.customClass}
+				shortcutNumber={index + 1}
 			/>
 		{/each}
 	</div>

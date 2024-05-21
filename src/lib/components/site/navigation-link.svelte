@@ -9,6 +9,7 @@
 	export let icon: ComponentType<SvelteComponent> | undefined = undefined;
 	export let iconClass: string = '';
 	export let isExternal: boolean = false;
+	export let shortcutNumber: number | undefined = undefined;
 
 	$: isActive =
 		$page.url.pathname === href ||
@@ -27,6 +28,18 @@
 		<svelte:component this={icon} class={cn('size-4', iconClass)} />
 		<span class={cn('font-medium', isActive && 'text-white')}>{name}</span>
 	</span>
+	{#if shortcutNumber}
+		<span
+			class={cn(
+				'hidden h-5 w-5 place-content-center rounded border border-gray-200 bg-gray-100 text-xs font-medium text-gray-500 transition-colors duration-200 group-hover:border-gray-300 lg:grid',
+				isActive && 'border-gray-600 bg-gray-700 text-gray-200 group-hover:border-gray-600'
+			)}
+			title={`Shortcut key: ${shortcutNumber}`}
+		>
+			{shortcutNumber}
+		</span>
+	{/if}
+
 	{#if isExternal}
 		<ArrowUpRight size={16} />
 	{/if}
