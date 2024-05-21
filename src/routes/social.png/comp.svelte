@@ -76,7 +76,16 @@
 		"
 	>
 		{#if isSeries}
-			Series: {CoverFolderName}
+			<div class="flex w-fit">
+				<span
+					class="rounded-full bg-slate-600 px-4 py-2 text-white"
+					style="
+                        fontSize: 1.5rem;
+                        lineHeight: 1;
+                        fontWeight: 300;
+                    ">Series: {CoverFolderName}</span
+				>
+			</div>
 		{/if}
 		<div style="display: flex; alignItems: center; gap: 1rem">
 			<span
