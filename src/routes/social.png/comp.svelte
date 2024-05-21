@@ -1,8 +1,10 @@
 <script>
+	import { Sparkle, Sparkles } from 'lucide-svelte';
+
 	export let title = 'Social';
 </script>
 
-<div
+<!-- <div
 	class="relative flex h-screen items-center justify-start p-20"
 	style="background-color: #ffffff;
   background-image: 
@@ -16,4 +18,67 @@
 	<div class="flex flex-col gap-0 text-lg">
 		<h1 class="-mb-10">{title}</h1>
 	</div>
+</div> -->
+
+<div
+	style="
+		backgroundColor: white;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		position: relative
+	"
+>
+	<div
+		style="
+			position: absolute;
+			inset: 0;
+			height: 100%;
+			width: 100%;
+			backgroundImage:
+				linear-gradient(to right, #80808012 1px, transparent 1px), linear-gradient(to bottom, #80808012 1px, transparent 1px);
+			backgroundSize: 24px 24px;
+            display: flex;
+		"
+	/>
+	<div
+		style="
+            display: flex;
+			position: absolute;
+			top: 60;
+			left: 60;
+			fontSize: 1.5rem;
+			lineHeight: 1;
+			background: #000;
+			color: #fff;
+			padding: 1rem 1.75rem;
+			borderRadius: 9999;
+		"
+	>
+		<!-- {`onur.dev${url ? `/${url}` : ''}`} -->
+		Prabhu Kiran Konda
+	</div>
+	<span
+		style="
+			display: flex;
+			flexDirection: column;
+			gap: 0.5rem;
+			position: absolute;
+			bottom: 100;
+			left: 60;
+			width: 80%;
+		"
+	>
+		<div style="display: flex; alignItems: center; gap: 1rem">
+			<span
+				style="
+					fontSize: 4rem;
+					lineHeight: 1;
+					fontWeight: 500;
+				"
+			>
+				{title}
+			</span>
+		</div>
+	</span>
 </div>
