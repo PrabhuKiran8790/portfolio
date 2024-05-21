@@ -14,6 +14,13 @@
 	}
 </script>
 
+<svelte:head>
+	<meta
+		property="og:image"
+		content={`https://v3-prabhukirankonda.vercel.app/social.png?title=${meta.title}`}
+	/>
+</svelte:head>
+
 <div class="scrollable-area bg-white">
 	<div class="content-wrapper mx-auto w-screen lg:max-w-[30rem] xl:max-w-[52rem]">
 		<div class="content mb-24">
@@ -24,6 +31,3 @@
 		</div>
 	</div>
 </div>
-
-
-

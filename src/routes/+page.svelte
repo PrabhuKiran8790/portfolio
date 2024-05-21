@@ -13,10 +13,6 @@
 	}
 </script>
 
-<svelte:head>
-	<meta property="og:image" content="https://v3-prabhukirankonda.vercel.app/social.png" />
-</svelte:head>
-
 <Scrollarea class="w-full">
 	<div class="content-wrapper relative flex w-full flex-col">
 		<div class="content">
