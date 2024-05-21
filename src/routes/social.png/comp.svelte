@@ -1,7 +1,9 @@
 <script>
-	import { Sparkle, Sparkles } from 'lucide-svelte';
-
-	export let title = 'Social';
+	export let title = '';
+	export let totalParts = 3;
+	export let currentPart = 1;
+	export let CoverFolderName = '';
+	export let isSeries = false;
 </script>
 
 <!-- <div
@@ -55,9 +57,13 @@
 			borderRadius: 9999;
 		"
 	>
-		<!-- {`onur.dev${url ? `/${url}` : ''}`} -->
 		Prabhu Kiran Konda
 	</div>
+	{#if isSeries}
+		<div class="absolute right-10 top-10 flex">
+			{currentPart} / {totalParts}
+		</div>
+	{/if}
 	<span
 		style="
 			display: flex;
@@ -69,6 +75,9 @@
 			width: 80%;
 		"
 	>
+		{#if isSeries}
+			Series: {CoverFolderName}
+		{/if}
 		<div style="display: flex; alignItems: center; gap: 1rem">
 			<span
 				style="

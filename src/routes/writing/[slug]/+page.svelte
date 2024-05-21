@@ -18,17 +18,30 @@
 <svelte:head>
 	<title>{meta.title}</title>
 	<meta property="description" content={meta.description} />
-	<meta
-		property="og:image"
-		content={`https://v3-prabhukirankonda.vercel.app/social.png?title=${meta.title}`}
-	/>
+	{#if !data.seriesPost}
+		<meta
+			property="og:image"
+			content={`https://v3-prabhukirankonda.vercel.app/social.png?title=${meta.title}`}
+		/>
+	{:else}
+		<meta
+			property="og:image"
+			content={`https://v3-prabhukirankonda.vercel.app/social.png?title=${meta.title}&isSeries=true&currentPart=${data.seriesPost?.subPosts.find((post) => post.title === meta.title)?.order}&CoverFolderName=${data.seriesPost.coverFolder}&totalParts=${data.seriesPost.subPosts.length}`}
+		/>
+	{/if}
 	<meta property="og:description" content={meta.description} />
 	<meta property="og:title" content={meta.title} />
-	<meta
-		property="twitter:image"
-		content={`https://v3-prabhukirankonda.vercel.app/social.png?title=${meta.title}`}
-	/>
-
+	{#if !data.seriesPost}
+		<meta
+			property="og:image"
+			content={`https://v3-prabhukirankonda.vercel.app/social.png?title=${meta.title}`}
+		/>
+	{:else}
+		<meta
+			property="og:image"
+			content={`https://v3-prabhukirankonda.vercel.app/social.png?title=${meta.title}&isSeries=true&currentPart=${data.seriesPost?.subPosts.find((post) => post.title === meta.title)?.order}&CoverFolderName=${data.seriesPost.coverFolder}&totalParts=${data.seriesPost.subPosts.length}`}
+		/>
+	{/if}
 	<meta
 		property="og:url"
 		content={`https://v3-prabhukirankonda.vercel.app/writing/${$page.params.slug}`}
