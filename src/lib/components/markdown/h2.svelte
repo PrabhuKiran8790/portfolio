@@ -5,6 +5,7 @@
 	export { className as class };
 </script>
 
+<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 <h2
 	class={cn(
 		// 'mt-12 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0',
@@ -13,6 +14,11 @@
 		className
 	)}
 	{...$$restProps}
+	on:click={() => {
+		if (window.location.hash !== `#${$$restProps.id}`) {
+			window.location.hash = `#${$$restProps.id}`;
+		}
+	}}
 >
 	<slot />
 </h2>

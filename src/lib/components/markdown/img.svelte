@@ -30,7 +30,7 @@
 	<div class="mb-5 flow-root">
 		<div
 			class={cn(
-				'-m-2 rounded-xl bg-gray-100 p-2 ring-1 ring-inset ring-gray-900/10  transition-colors duration-300 hover:bg-gray-200/80 lg:-m-4 lg:rounded-2xl',
+				'-m-2 rounded-xl bg-gray-100 p-2 ring-1 ring-inset ring-gray-900/10 transition-colors duration-300 hover:bg-gray-200/80 lg:-m-4 lg:rounded-2xl',
 				$page.url.pathname !== '/journey' ? 'lg:p-2' : 'lg:p-3'
 			)}
 		>
