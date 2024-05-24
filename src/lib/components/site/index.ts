@@ -6,3 +6,4 @@ export { default as ScrollArea } from './scrollarea.svelte';
 export { default as Navbar } from './navbar.svelte';
 export { default as MenuContent } from './menucontent.svelte';
 export { default as PostsList } from './postslist.svelte';
+export { default as WorkList } from './worklist.svelte';

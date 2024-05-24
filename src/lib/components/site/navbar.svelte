@@ -5,6 +5,7 @@
 	import { headerTitle } from '$lib/stores';
 	import { navigating, page } from '$app/stores';
 	import { goto } from '$app/navigation';
+	import { cn } from '$lib/utils';
 
 	let showDrawer = false;
 
@@ -23,9 +24,11 @@
 </script>
 
 <div
-	class="sticky inset-x-0 top-0 z-10 mx-auto flex h-12 w-full shrink-0 items-center overflow-hidden border-b bg-white text-sm font-medium lg:hidden"
+	class={cn(
+		'sticky inset-x-0 top-0 z-10 mx-auto flex h-12 w-full shrink-0 items-center overflow-hidden border-b bg-white text-sm font-medium lg:hidden'
+	)}
 >
-	<div class="z-20 flex h-full w-full items-center justify-between px-6">
+	<div class="z-10 flex h-full w-full items-center justify-between px-6">
 		<button
 			class="flex items-center gap-3"
 			on:click={() => {
@@ -50,7 +53,7 @@
 </div>
 
 <Drawer.Root bind:open={showDrawer} shouldScaleBackground>
-	<Drawer.Content class="h-4/5">
+	<Drawer.Content class="h-4/5 rounded-t-xl">
 		<div class="overflow-y-auto px-2">
 			<MenuContent />
 		</div>

@@ -4,7 +4,7 @@
 	import { dev } from '$app/environment';
 	import { page } from '$app/stores';
 
-	let className: string | undefined | null = undefined;
+	// let className: string | undefined | null = undefined;
 	// export { className as class };
 	export let src: HTMLImgAttributes['src'] = undefined;
 	export let alt: HTMLImgAttributes['alt'] = undefined;

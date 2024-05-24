@@ -45,26 +45,6 @@
 		if (codeElement) {
 			const languageAttribute = codeElement.getAttribute('data-language');
 			lang = languageAttribute as string;
-
-			// // Check if data-language attribute is not equal to "md"
-			// if (languageAttribute && languageAttribute.toLowerCase() !== 'md') {
-			// 	const lines = codeElement.querySelectorAll('span[data-line]');
-			// 	lines.forEach((line) => {
-			// 		const lineText = line.textContent || '';
-
-			// 		if (lineText.includes('// [!code ++]') || lineText.includes('# [!code ++]')) {
-			// 			line.classList.add('code-add');
-			// 			line.innerHTML = line.innerHTML
-			// 				.replace(/\/\/ \[!code \+\+\]/g, '')
-			// 				.replace(/# \[!code \+\+\]/g, '');
-			// 		} else if (lineText.includes('// [!code --]') || lineText.includes('# [!code --]')) {
-			// 			line.classList.add('code-delete');
-			// 			line.innerHTML = line.innerHTML
-			// 				.replace(/\/\/ \[!code --\]/g, '')
-			// 				.replace(/# \[!code --\]/g, '');
-			// 		}
-			// 	});
-			// }
 		}
 	});
 </script>

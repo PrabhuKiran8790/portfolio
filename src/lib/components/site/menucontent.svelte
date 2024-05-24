@@ -19,7 +19,7 @@
 	<div class="w-full p-1.5">
 		<a
 			href="/"
-			class="inline-flex w-full items-center gap-2 rounded bg-transparent p-2 transition-colors duration-300 hover:bg-gray-200"
+			class="inline-flex w-full items-center gap-2 rounded-lg bg-transparent p-2 transition-colors duration-300 hover:bg-gray-200"
 		>
 			<img
 				src="/profile_picture.jpg"

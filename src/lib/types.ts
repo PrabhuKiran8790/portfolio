@@ -27,3 +27,32 @@ export interface SeriesPost extends BasePost {
 	coverFolder: string;
 	subPosts: Series[];
 }
+
+export type Work = {
+	_id: number;
+	link: string;
+	title: string;
+	excerpt: string;
+	note: string;
+	cover: string;
+	domain: string;
+	tags: string[];
+};
+
+export type MetadataGetter = {
+	title: string;
+	description: string;
+	link: string;
+	techstack: string[];
+	cover: string;
+	order: number;
+};
+
+export interface Module {
+	default: ConstructorOfATypedSvelteComponent;
+	metadata: MetadataGetter;
+}
+
+export interface ModuleWithFilename extends Module {
+	filename: string;
+}
