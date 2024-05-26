@@ -31,7 +31,7 @@
 <div class="hidden h-full border-r bg-zinc-50 text-sm font-light lg:block lg:w-80 xl:w-96">
 	<div class="sticky top-0 z-10 border-b bg-zinc-50 px-5 py-3">
 		<div class="flex items-center justify-between">
-			<span class="text-sm font-semibold tracking-tight">Work</span>
+			<span class="text-sm font-semibold tracking-tight">{$headerTitle}</span>
 		</div>
 	</div>
 	<WorkList works={data.works} bind:selectedWork bind:currentWork />

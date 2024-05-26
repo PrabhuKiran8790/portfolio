@@ -47,3 +47,25 @@ export interface Module {
 export interface ModuleWithFilename extends Module {
 	filename: string;
 }
+
+export type Collection = {
+	_id: number;
+	title: string;
+	description: string;
+	count: 1;
+	cover: [];
+	slug: string;
+};
+
+export type Bookmark = {
+	_id: number;
+	link: string;
+	title: string;
+	excerpt: string;
+	note: string;
+	cover: string;
+	tags: string[];
+	removed: boolean;
+	domain: string;
+	collectionId: number;
+};

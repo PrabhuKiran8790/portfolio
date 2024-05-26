@@ -23,6 +23,7 @@
 		isActive ? 'bg-black text-white' : 'hover:bg-gray-200'
 	)}
 	target={isExternal ? '_blank' : ''}
+	data-sveltekit-preload-data
 >
 	<span class="flex items-center gap-2">
 		<svelte:component this={icon} class={cn('size-4', iconClass)} />

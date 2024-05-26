@@ -1,13 +1,12 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import * as Accordion from '$lib/components/ui/accordion';
 	import * as Tabs from '$lib/components/ui/tabs';
+	import { seriesPostCoverFolder } from '$lib/stores';
 	import type { Post, SeriesPost } from '$lib/types';
 	import { cn, formatDate } from '$lib/utils';
 	import { cubicInOut } from 'svelte/easing';
-	import { crossfade, fly } from 'svelte/transition';
-	import * as Accordion from '$lib/components/ui/accordion';
-	import { seriesPostCoverFolder } from '$lib/stores';
-	import { goto } from '$app/navigation';
+	import { crossfade } from 'svelte/transition';
 
 	export let posts: Post[] = [];
 	export let seriesPosts: SeriesPost[] = [];
