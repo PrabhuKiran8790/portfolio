@@ -1,4 +1,4 @@
-import type { Module, ModuleWithFilename } from "$lib/types";
+import type { Module, ModuleWithFilename } from '$lib/types';
 
 function sortModulesByOrder(modules: ModuleWithFilename[]): ModuleWithFilename[] {
 	return modules.sort((a, b) => a.metadata.order - b.metadata.order);

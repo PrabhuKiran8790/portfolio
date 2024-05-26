@@ -10,5 +10,8 @@ techstack:
     - Drizzle
     - Stripe
 cover: '/corgi-ai-dashboard.png'
+source: 'https://github.com/PrabhuKiran8790/corgi-docker'
 order: 2
 ---
+
+Corgi AI is an AI SaaS Platform built using SvelteKit, TypeScript. It has several AI tools like Chat with AI, Image Generation, Video Generation, Image Restoration

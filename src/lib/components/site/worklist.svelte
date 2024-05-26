@@ -16,15 +16,15 @@
 	}
 </script>
 
-<div class="scrollable-area flex flex-col gap-1 p-2">
+<div class="scrollable-area flex flex-col gap-2 p-2">
 	{#each works as work}
 		{@const isActive = selectedWork === work.filename}
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<div
 			class={cn(
-				'flex flex-col gap-1 rounded-lg p-2 transition-colors duration-300 hover:cursor-pointer [&>*]:transition-colors [&>*]:duration-300',
-				isActive ? 'bg-black' : 'hover:bg-gray-200'
+				'active:bg-gra-200 flex flex-col gap-1 rounded-lg p-2 transition-colors duration-300 hover:cursor-pointer [&>*]:transition-colors [&>*]:duration-300',
+				isActive ? 'lg:bg-black' : 'lg:hover:bg-gray-200'
 			)}
 			on:click={() => {
 				selectedWork = work.filename;

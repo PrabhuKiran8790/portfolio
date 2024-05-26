@@ -4,8 +4,8 @@
 	import { dev } from '$app/environment';
 	import { page } from '$app/stores';
 
-	// let className: string | undefined | null = undefined;
-	// export { className as class };
+	let className: string | undefined | null = undefined;
+	export { className as class };
 	export let src: HTMLImgAttributes['src'] = undefined;
 	export let alt: HTMLImgAttributes['alt'] = undefined;
 
@@ -26,7 +26,7 @@
 	<p class="text-center text-sm text-muted-foreground">{alt ? alt : ''}</p>
 </div> -->
 
-<div class="mx-auto mt-10 lg:px-4">
+<div class={cn('mx-auto mt-10 lg:px-4', className)}>
 	<div class="mb-5 flow-root">
 		<div
 			class={cn(
@@ -39,6 +39,13 @@
 				{alt}
 				loading="lazy"
 				class="animate-reveal rounded-lg bg-white ring-1 ring-gray-900/10 transition-colors duration-300 hover:shadow-xl lg:rounded-xl"
+				on:error={(e) => {
+					const target = e.target;
+					if (target instanceof HTMLImageElement) {
+						target.onerror = null;
+						target.src = '/fallback.avif';
+					}
+				}}
 			/>
 		</div>
 	</div>

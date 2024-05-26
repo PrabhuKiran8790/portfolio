@@ -9,8 +9,8 @@
 	export { className as class };
 </script>
 
-<div class={cn('mb-6', className)}>
-	<h1 use:balancer id="BlogTitle" class="mb-2">
+<div class={cn('mb-6 w-full', className)}>
+	<h1 use:balancer id="BlogTitle" class="mb-2 w-full">
 		{title}
 	</h1>
 	{#if subtitle}

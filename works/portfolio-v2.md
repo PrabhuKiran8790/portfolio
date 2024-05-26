@@ -8,3 +8,5 @@ techstack:
 cover: https://prabhukirankonda.vercel.app/og.png
 order: 1
 ---
+
+My new personal website and markdown based blog completely written in SvelteKit. Written custom markdown plugins to handle rendering of math equations, has support for Giscus comments, support for series and individual blogs, syntax highlighting for code blocks using Shiki and many more.
