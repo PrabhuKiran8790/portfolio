@@ -2,8 +2,13 @@
 	import Link2Icon from 'lucide-svelte/icons/link-2';
 	import { PageTitle } from '$lib/components/site';
 	import { Masonry } from '$lib/components/site';
+	import { headerTitle } from '$lib/stores';
 
 	export let data;
+
+	$: {
+		$headerTitle = 'Bookmarks | ' + data.title;
+	}
 </script>
 
 <div class="scrollable-area">

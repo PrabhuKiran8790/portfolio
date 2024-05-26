@@ -22,9 +22,6 @@
 			{@const isActive = $page.url.pathname === `/bookmarks/${collection.slug}`}
 			<a
 				href={`/bookmarks/${collection.slug}`}
-				on:click={() => {
-					$seriesPostCoverFolder = '';
-				}}
 				data-sveltekit-preload-data
 				class={cn(
 					'flex flex-col gap-1 rounded-lg p-2 transition-colors duration-300 [&>*]:transition-colors [&>*]:duration-300',

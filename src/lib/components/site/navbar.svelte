@@ -21,6 +21,9 @@
 	// Check if the segment after /writing exists and is not empty
 	$: isBlogLinkOpened =
 		pathSegments[1] === 'writing' && pathSegments[2] !== undefined && pathSegments[2] !== '';
+
+	$: isBookmarksLinkOpened =
+		pathSegments[1] === 'bookmarks' && pathSegments[2] !== undefined && pathSegments[2] !== '';
 </script>
 
 <div
@@ -39,11 +42,11 @@
 			<span id="headerTitle" class="max-w-[70dvw] pr-3">{$headerTitle}</span>
 		</button>
 
-		{#if isBlogLinkOpened}
+		{#if isBlogLinkOpened || isBookmarksLinkOpened}
 			<button
 				on:click={() => {
 					// go back to the previous page
-					goto('/writing');
+					goto(`/${pathSegments.slice(1, -1).join('/')}`);
 				}}
 			>
 				<ArrowLeft size={16} />
