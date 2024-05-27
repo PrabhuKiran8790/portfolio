@@ -5,7 +5,7 @@ link: https://prabhukirankonda.vercel.app
 techstack:
     - SvelteKit
     - TypeScript
-cover: https://prabhukirankonda.vercel.app/og.png
+cover: /portfolio-v2.png
 order: 1
 ---
 
