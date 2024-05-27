@@ -1,9 +1,8 @@
 <script lang="ts">
-	import { Card, Metatags, PageTitle } from '$lib/components/site';
-	import { Button } from '$lib/components/ui/button';
-	import { Masonry } from '$lib/components/site';
-	import { work } from '$lib/config';
+	import { Card, Masonry, PageTitle } from '$lib/components/site';
 	import Scrollarea from '$lib/components/site/scrollarea.svelte';
+	import { Button } from '$lib/components/ui/button';
+	import { work } from '$lib/config';
 	import { headerTitle } from '$lib/stores';
 
 	export let data;
@@ -12,11 +11,6 @@
 		$headerTitle = 'Prabhu Kiran Konda';
 	}
 </script>
-
-<Metatags
-	title="Prabhu Kiran Konda"
-	description="Electrical Engineer, Software Developer, and Writer"
-/>
 
 <Scrollarea class="w-full">
 	<div class="content-wrapper relative flex w-full flex-col">

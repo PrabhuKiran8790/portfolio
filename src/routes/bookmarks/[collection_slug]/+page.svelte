@@ -31,13 +31,19 @@
 	<meta property="og:description" content={`${data.title} Bookmarks`} />
 	<meta property="og:title" content={data.title} />
 	<meta
+		name="twitter:image"
 		property="twitter:image"
 		content={`${$page.url.origin}/bookmarks/social.png?title=${data.title}&count=${data.bookmarks.length}`}
 	/>
 	<meta property="og:url" content={$page.url.href} />
-	<meta property="twitter:card" content="summary_large_image" />
-	<meta property="twitter:title" content={data.title} />
-	<meta property="twitter:description" content={`${data.title} Bookmarks`} />
+	<meta name="twitter:card" property="twitter:card" content="summary_large_image" />
+	<meta name="twitter:image:alt" property="twitter:title" content={data.title} />
+	<meta name="twitter:title" property="twitter:title" content={data.title} />
+	<meta
+		name="twitter:description"
+		property="twitter:description"
+		content={`${data.title} Bookmarks`}
+	/>
 </svelte:head>
 
 <div class="scrollable-area bg-grid">

@@ -17,13 +17,15 @@
 	<meta property="og:description" content={description} />
 	<meta property="og:title" content={title} />
 	<meta
+		name="twitter:image"
 		property="twitter:image"
 		content={`${$page.url.origin}/social.png?title=${title}&description=${description}`}
 	/>
 	<meta property="og:url" content={$page.url.href} />
-	<meta property="twitter:card" content="summary_large_image" />
-	<meta property="twitter:title" content={title} />
-	<meta property="twitter:description" content={description} />
+	<meta name="twitter:card" property="twitter:card" content="summary_large_image" />
+	<meta name="twitter:image:alt" property="twitter:title" content={title} />
+	<meta name="twitter:title" property="twitter:title" content={title} />
+	<meta name="twitter:description" property="twitter:description" content={description} />
 	<meta name="twitter:site" content="@prabhukirantwt" />
 	<meta name="twitter:creator" content="@prabhukirantwt" />
 	<!-- height and widht -->

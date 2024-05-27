@@ -33,19 +33,22 @@
 	<meta property="og:title" content={meta.title} />
 	{#if !data.seriesPost}
 		<meta
+			name="twitter:image"
 			property="twitter:image"
 			content={`${$page.url.origin}/writing/social.png?title=${meta.title}`}
 		/>
 	{:else}
 		<meta
+			name="twitter:image"
 			property="twitter:image"
 			content={`${$page.url.origin}/writing/social.png?title=${meta.title}&isSeries=true&currentPart=${data.seriesPost?.subPosts.find((post) => post.title === meta.title)?.order}&CoverFolderName=${data.seriesPost.title}&totalParts=${data.seriesPost.subPosts.length}`}
 		/>
 	{/if}
 	<meta property="og:url" content={$page.url.href} />
-	<meta property="twitter:card" content="summary_large_image" />
-	<meta property="twitter:title" content={meta.title} />
-	<meta property="twitter:description" content={meta.description} />
+	<meta name="twitter:card" property="twitter:card" content="summary_large_image" />
+	<meta name="twitter:image:alt" property="twitter:title" content={meta.title} />
+	<meta name="twitter:title" property="twitter:title" content={meta.title} />
+	<meta name="twitter:description" property="twitter:description" content={meta.description} />
 </svelte:head>
 
 <div class="scrollable-area bg-white">

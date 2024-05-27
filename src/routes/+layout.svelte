@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto, onNavigate } from '$app/navigation';
-	import { MenuContent, Navbar } from '$lib/components/site';
+	import { MenuContent, Metatags, Navbar } from '$lib/components/site';
 	import '../app.pcss';
 	import { Toaster } from '$lib/components/ui/sonner';
 
@@ -18,6 +18,11 @@
 
 	preparePageTransition();
 </script>
+
+<Metatags
+	title="Prabhu Kiran Konda"
+	description="Electrical Engineer, Software Developer, and Writer"
+/>
 
 <Toaster />
 
