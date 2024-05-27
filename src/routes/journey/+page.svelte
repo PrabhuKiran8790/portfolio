@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { cn } from '$lib/utils';
+	import { PageTitle } from '$lib/components/site';
 	import { headerTitle } from '$lib/stores';
-	import { Calendar, CalendarIcon, PlusIcon } from 'lucide-svelte';
-	import { PageTitle, Metatags } from '$lib/components/site';
+	import { cn } from '$lib/utils';
+	import { CalendarIcon, PlusIcon } from 'lucide-svelte';
 	export let data;
 
 	$: {
@@ -13,8 +13,6 @@
 		return index === array.length - 1;
 	}
 </script>
-
-<Metatags title="Journey" description="My journey through the years" />
 
 <div class="scrollable-area relative flex w-full flex-col">
 	<div

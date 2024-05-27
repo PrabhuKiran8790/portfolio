@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onNavigate } from '$app/navigation';
-	import { MenuContent, Navbar } from '$lib/components/site';
+	import { MenuContent, Metatags, Navbar } from '$lib/components/site';
 	import { Toaster } from '$lib/components/ui/sonner';
 	import '../app.pcss';
 
@@ -18,6 +18,8 @@
 
 	preparePageTransition();
 </script>
+
+<Metatags />
 
 <Toaster />
 

@@ -1,6 +1,5 @@
 <script>
 	import { page } from '$app/stores';
-	import { Metatags } from '$lib/components/site';
 	import { headerTitle } from '$lib/stores';
 	import { cn } from '$lib/utils';
 	export let data;

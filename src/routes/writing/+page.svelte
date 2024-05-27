@@ -1,8 +1,6 @@
 <script>
-	import { headerTitle } from '$lib/stores';
-	import { Metatags, PostsList } from '$lib/components/site';
-	import { seriesPostCoverFolder } from '$lib/stores';
-	import { Card, Masonry } from '$lib/components/site';
+	import { Card, Masonry, PostsList } from '$lib/components/site';
+	import { headerTitle, seriesPostCoverFolder } from '$lib/stores';
 
 	export let data;
 
