@@ -66,6 +66,6 @@ export const work = {
 
 export const githubConfig = {
 	username: 'PrabhuKiran8790',
-	repo: 'portfolio-v3',
+	repo: 'portfolio',
 	branch: 'main'
 };
