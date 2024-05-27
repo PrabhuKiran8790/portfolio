@@ -104,7 +104,7 @@
 		handle: currentMeta.twitter?.handle || '@handle',
 		site: currentMeta.twitter?.site || '@site',
 		cardType: currentMeta.twitter?.cardType || 'summary_large_image',
-		title: currentMeta.twitter?.title || currentMeta.title,
+		title: `${currentMeta.twitter?.title || currentMeta.title} | Prabhu Kiran Konda`,
 		description: currentMeta.twitter?.description || currentMeta.description,
 		image: currentMeta.twitter?.image || currentMeta.image,
 		imageAlt: currentMeta.twitter?.imageAlt || 'Twitter image alt'
