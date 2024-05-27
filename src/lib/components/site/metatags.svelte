@@ -12,7 +12,7 @@
 
 	<meta
 		property="og:image"
-		content={`${$page.url.origin}/social.png?title=${title}&description=${description}`}
+		content={`${$page.url.origin}/social.png?title=${title}&description=${description}?v=1`}
 	/>
 
 	<meta property="og:description" content={description} />
@@ -20,7 +20,7 @@
 	<meta
 		name="twitter:image"
 		property="twitter:image"
-		content={`${$page.url.origin}/social.png?title=${title}&description=${description}`}
+		content={`${$page.url.origin}/social.png?title=${title}&description=${description}?v=1`}
 	/>
 	<meta property="og:url" content={$page.url.href} />
 	<meta name="twitter:card" property="twitter:card" content="summary_large_image" />
