@@ -27,17 +27,14 @@
 	<title>{title}</title>
 	<meta property="description" content={description} />
 
-	<meta
-		property="og:image"
-		content={`https://v3-prabhukirankonda.vercel.app/social.png?title=${title}&description=${description}`}
-	/>
+	<meta property="og:image" content={`https://prabhukirankonda.vercel.app/og-root.png`} />
 
 	<meta property="og:description" content={description} />
 	<meta property="og:title" content={title} />
 	<meta
 		name="twitter:image"
 		property="twitter:image"
-		content={`https://v3-prabhukirankonda.vercel.app/social.png?title=${title}&description=${description}`}
+		content={`https://prabhukirankonda.vercel.app/og-root.png`}
 	/>
 	<meta property="og:url" content={$page.url.href} />
 	<meta name="twitter:card" property="twitter:card" content="summary_large_image" />
