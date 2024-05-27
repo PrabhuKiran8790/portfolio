@@ -1,12 +1,15 @@
 <script lang="ts">
 	import { headerTitle, seriesPostCoverFolder } from '$lib/stores.js';
 	import { PostsList } from '$lib/components/site';
+	import Metatags from '$lib/components/site/metatags.svelte';
 	export let data;
 
 	$: {
 		$headerTitle = 'Writing';
 	}
 </script>
+
+<Metatags />
 
 <div class="hidden h-full border-r bg-zinc-50 text-sm font-light lg:block lg:w-80 xl:w-96">
 	<div class="sticky top-0 z-10 border-b bg-zinc-50 px-5 py-3">

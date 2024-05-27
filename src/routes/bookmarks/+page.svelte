@@ -12,8 +12,6 @@
 	$: collections = data.collections;
 </script>
 
-<Metatags title="Bookmarks" description="A collection of bookmarks that I find interesting" />
-
 <div class="lg:hidden">
 	<div class="scrollable-area flex flex-col gap-2 p-2">
 		{#each collections as collection}

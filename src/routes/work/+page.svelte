@@ -28,8 +28,6 @@
 	const isDesktop = mediaQuery('(min-width: 1240px)');
 </script>
 
-<Metatags title="Work" description="A collection of projects that I have worked on" />
-
 <div class="hidden h-full border-r bg-zinc-50 text-sm font-light lg:block lg:w-80 xl:w-96">
 	<div class="sticky top-0 z-10 border-b bg-zinc-50 px-5 py-3">
 		<div class="flex items-center justify-between">

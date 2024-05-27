@@ -16,8 +16,6 @@
 	}
 </script>
 
-<Metatags title="Writing" description="Learnings, thoughts, and experiences" />
-
 <div class="lg:hidden">
 	<PostsList posts={data.posts} seriesPosts={data.seriesPosts} />
 </div>
