@@ -50,6 +50,22 @@
 				creator: '@prabhukirantwt',
 				handle: '@prabhukirantwt'
 			}
+		},
+		{
+			title: 'Journey',
+			description: 'My journey through the years',
+			image:
+				'https://prabhukirankonda.vercel.app/social.png?title=Journey&description=My journey through the years',
+			url: 'https://prabhukirankonda.vercel.app/journey',
+			twitter: {
+				cardType: 'summary_large_image',
+				image:
+					'https://prabhukirankonda.vercel.app/social.png?title=Journey&description=My journey through the years',
+				imageAlt: 'Journey',
+				site: '@prabhukirantwt',
+				creator: '@prabhukirantwt',
+				handle: '@prabhukirantwt'
+			}
 		}
 	];
 
