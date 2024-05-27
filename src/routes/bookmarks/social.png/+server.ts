@@ -7,8 +7,8 @@ const fontFile = await fetch('https://og-playground.vercel.app/inter-latin-ext-7
 const fontData: ArrayBuffer = await fontFile.arrayBuffer();
 
 export async function GET({ url }) {
-	const width = 800;
-	const height = 630;
+	const width = 1200;
+	const height = 800;
 
 	// @ts-expect-error svelte SSR
 	const result = Comp.render({
