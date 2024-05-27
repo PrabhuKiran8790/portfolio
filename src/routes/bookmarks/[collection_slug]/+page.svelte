@@ -25,19 +25,16 @@
 
 	<meta
 		property="og:image"
-		content={`https://v3-prabhukirankonda.vercel.app/bookmarks/social.png?title=${data.title}&count=${data.bookmarks.length}`}
+		content={`${$page.url.origin}/bookmarks/social.png?title=${data.title}&count=${data.bookmarks.length}`}
 	/>
 
 	<meta property="og:description" content={`${data.title} Bookmarks`} />
 	<meta property="og:title" content={data.title} />
 	<meta
 		property="twitter:image"
-		content={`https://v3-prabhukirankonda.vercel.app/bookmarks/social.png?title=${data.title}&count=${data.bookmarks.length}`}
+		content={`${$page.url.origin}/bookmarks/social.png?title=${data.title}&count=${data.bookmarks.length}`}
 	/>
-	<meta
-		property="og:url"
-		content={`https://v3-prabhukirankonda.vercel.app/bookmarks/${$page.params.slug}`}
-	/>
+	<meta property="og:url" content={$page.url.href} />
 	<meta property="twitter:card" content="summary_large_image" />
 	<meta property="twitter:title" content={data.title} />
 	<meta property="twitter:description" content={`${data.title} Bookmarks`} />

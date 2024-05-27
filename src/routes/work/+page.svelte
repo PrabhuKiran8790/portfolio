@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { langIcons } from '$lib/components/markdown/icons';
 	import Image from '$lib/components/markdown/img.svelte';
-	import { WorkList } from '$lib/components/site';
+	import { Metatags, WorkList } from '$lib/components/site';
 	import * as Drawer from '$lib/components/ui/drawer';
 	import { headerTitle } from '$lib/stores';
 	import type { ModuleWithFilename } from '$lib/types';
@@ -27,6 +27,8 @@
 
 	const isDesktop = mediaQuery('(min-width: 1240px)');
 </script>
+
+<Metatags title="Work" description="A collection of projects that I have worked on" />
 
 <div class="hidden h-full border-r bg-zinc-50 text-sm font-light lg:block lg:w-80 xl:w-96">
 	<div class="sticky top-0 z-10 border-b bg-zinc-50 px-5 py-3">
