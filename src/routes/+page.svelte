@@ -19,14 +19,14 @@
 	<title>{title}</title>
 	<meta property="description" content={description} />
 
-	<meta property="og:image" content={`https://prabhukirankonda.vercel.app/og-root.png`} />
+	<meta property="og:image" content={`https://prabhukirankonda.vercel.app/og-root.png?v=1`} />
 
 	<meta property="og:description" content={description} />
 	<meta property="og:title" content={title} />
 	<meta
 		name="twitter:image"
 		property="twitter:image"
-		content={`https://prabhukirankonda.vercel.app/og-root.png`}
+		content={`https://prabhukirankonda.vercel.app/og-root.png?v=1`}
 	/>
 	<meta property="og:url" content={$page.url.href} />
 	<meta name="twitter:card" property="twitter:card" content="summary_large_image" />
