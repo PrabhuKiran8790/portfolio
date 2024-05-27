@@ -52,7 +52,7 @@ export type Collection = {
 	_id: number;
 	title: string;
 	description: string;
-	count: 1;
+	count: number;
 	cover: [];
 	slug: string;
 };

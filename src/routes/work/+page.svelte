@@ -25,7 +25,7 @@
 		showDrawer = selectedWork !== '' || currentWork !== undefined;
 	}
 
-	const isDesktop = mediaQuery('(min-width: 768px)');
+	const isDesktop = mediaQuery('(min-width: 1240px)');
 </script>
 
 <div class="hidden h-full border-r bg-zinc-50 text-sm font-light lg:block lg:w-80 xl:w-96">

@@ -3,6 +3,7 @@
 	import { PageTitle } from '$lib/components/site';
 	import { Masonry } from '$lib/components/site';
 	import { headerTitle } from '$lib/stores';
+	import { page } from '$app/stores';
 
 	export let data;
 
@@ -10,6 +11,30 @@
 		$headerTitle = 'Bookmarks | ' + data.title;
 	}
 </script>
+
+<svelte:head>
+	<title>{data.title}</title>
+	<meta property="description" content={`${data.title} Bookmarks`} />
+
+	<meta
+		property="og:image"
+		content={`https://v3-prabhukirankonda.vercel.app/bookmarks/social.png?title=${data.title}&count=${data.bookmarks.length}`}
+	/>
+
+	<meta property="og:description" content={`${data.title} Bookmarks`} />
+	<meta property="og:title" content={data.title} />
+	<meta
+		property="twitter:image"
+		content={`https://v3-prabhukirankonda.vercel.app/bookmarks/social.png?title=${data.title}&count=${data.bookmarks.length}`}
+	/>
+	<meta
+		property="og:url"
+		content={`https://v3-prabhukirankonda.vercel.app/bookmarks/${$page.params.slug}`}
+	/>
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:title" content={data.title} />
+	<meta property="twitter:description" content={`${data.title} Bookmarks`} />
+</svelte:head>
 
 <div class="scrollable-area">
 	<div class="content-wrapper mx-auto w-screen lg:max-w-[30rem] xl:max-w-[52rem]">
