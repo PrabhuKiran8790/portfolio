@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import { Card, Masonry, PageTitle } from '$lib/components/site';
 	import Scrollarea from '$lib/components/site/scrollarea.svelte';
 	import { Button } from '$lib/components/ui/button';
@@ -10,7 +11,31 @@
 	$: {
 		$headerTitle = 'Prabhu Kiran Konda';
 	}
+	let title = 'Prabhu Kiran Konda';
+	let description = 'Electrical Engineer, Software Developer and Writer';
 </script>
+
+<svelte:head>
+	<title>{title}</title>
+	<meta property="description" content={description} />
+
+	<meta property="og:image" content={`https://prabhukirankonda.vercel.app/og-root.png`} />
+
+	<meta property="og:description" content={description} />
+	<meta property="og:title" content={title} />
+	<meta
+		name="twitter:image"
+		property="twitter:image"
+		content={`https://prabhukirankonda.vercel.app/og-root.png`}
+	/>
+	<meta property="og:url" content={$page.url.href} />
+	<meta name="twitter:card" property="twitter:card" content="summary_large_image" />
+	<meta name="twitter:image:alt" property="twitter:title" content={title} />
+	<meta name="twitter:title" property="twitter:title" content={title} />
+	<meta name="twitter:description" property="twitter:description" content={description} />
+	<meta name="twitter:site" content="@prabhukirantwt" />
+	<meta name="twitter:creator" content="@prabhukirantwt" />
+</svelte:head>
 
 <Scrollarea class="w-full">
 	<div class="content-wrapper relative flex w-full flex-col">
