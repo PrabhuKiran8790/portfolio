@@ -15,12 +15,13 @@
 					'https://prabhukirankonda.vercel.app/social.png?title=Prabhu Kiran Konda&description=Electrical Engineer, Software Developer and Writer',
 				imageAlt: 'Prabhu Kiran Konda',
 				site: '@prabhukirantwt',
-				creator: '@prabhukirantwt'
+				creator: '@prabhukirantwt',
+				handle: '@prabhukirantwt'
 			}
 		},
 		{
 			title: 'Bookmarks',
-			description: 'Bookmarks',
+			description: 'A collection of bookmarks that I find interesting',
 			image:
 				'https://prabhukirankonda.vercel.app/social.png?title=Bookmarks&description=A collection of bookmarks that I find interesting',
 			url: 'https://prabhukirankonda.vercel.app/bookmarks',
@@ -30,12 +31,13 @@
 					'https://prabhukirankonda.vercel.app/social.png?title=Bookmarks&description=A collection of bookmarks that I find interesting',
 				imageAlt: 'Bookmarks',
 				site: '@prabhukirantwt',
-				creator: '@prabhukirantwt'
+				creator: '@prabhukirantwt',
+				handle: '@prabhukirantwt'
 			}
 		},
 		{
 			title: 'Writing',
-			description: 'Writing',
+			description: 'Learnings, thoughts and ideas.',
 			image:
 				'https://prabhukirankonda.vercel.app/social.png?title=Writing&description=Learnings, thoughts and ideas.',
 			url: 'https://prabhukirankonda.vercel.app/writing',
@@ -45,7 +47,8 @@
 					'https://prabhukirankonda.vercel.app/social.png?title=Writing&description=Learnings, thoughts and ideas.',
 				imageAlt: 'Writing',
 				site: '@prabhukirantwt',
-				creator: '@prabhukirantwt'
+				creator: '@prabhukirantwt',
+				handle: '@prabhukirantwt'
 			}
 		}
 	];
@@ -64,6 +67,7 @@
 
 <MetaTags
 	title={currentMeta.title}
+	titleTemplate="%s | Prabhu Kiran Konda"
 	description={currentMeta.description}
 	canonical={currentMeta.url}
 	openGraph={{
@@ -78,7 +82,7 @@
 				alt: 'Og Image Alt'
 			}
 		],
-		siteName: 'SiteName'
+		siteName: 'Prabhu Kiran Konda'
 	}}
 	twitter={{
 		handle: currentMeta.twitter?.handle || '@handle',
