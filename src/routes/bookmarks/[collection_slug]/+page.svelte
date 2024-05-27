@@ -4,11 +4,18 @@
 	import { Masonry } from '$lib/components/site';
 	import { headerTitle } from '$lib/stores';
 	import { page } from '$app/stores';
+	import { mediaQuery } from '$lib/utils';
 
 	export let data;
 
+	const isDesktop = mediaQuery('(min-width: 1240px)');
+
 	$: {
-		$headerTitle = 'Bookmarks | ' + data.title;
+		if (!$isDesktop) {
+			$headerTitle = 'Bookmarks | ' + data.title;
+		} else {
+			$headerTitle = 'Bookmarks';
+		}
 	}
 </script>
 
@@ -34,6 +41,8 @@
 	<meta property="twitter:card" content="summary_large_image" />
 	<meta property="twitter:title" content={data.title} />
 	<meta property="twitter:description" content={`${data.title} Bookmarks`} />
+	<meta property="og:image:width" content="800" />
+	<meta property="og:image:height" content="630" />
 </svelte:head>
 
 <div class="scrollable-area bg-grid">

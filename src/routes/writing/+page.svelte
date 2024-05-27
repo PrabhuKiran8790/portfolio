@@ -22,13 +22,13 @@
 
 <div class="hidden h-full lg:block">
 	{#if $seriesPostCoverFolder}
-		<div class="flex h-full flex-col items-center justify-center bg-grid">
-			<div class="p-24">
+		<div class="bg-grid flex h-full w-full flex-col items-center justify-center">
+			<div class="p-20">
 				<div>
 					<h1>{item.title}</h1>
 					<p>{item.description}</p>
 				</div>
-				<div class="scrollable-area__">
+				<div class="scrollable-area__ w-full">
 					<Masonry items={item['subPosts']} gridGap={'1rem'} stretchFirst={false} reset>
 						{#each item['subPosts'] as post}
 							<Card title={post.title} image={post.image} {post} />
@@ -38,12 +38,7 @@
 			</div>
 		</div>
 	{/if}
-
-	
 </div>
-
-
-
 
 <style lang="postcss">
 	.scrollable-area__ {

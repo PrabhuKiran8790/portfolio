@@ -32,7 +32,7 @@
 	"
 >
 	{#if !isSeries}
-		<div class="absolute right-10 top-10 z-40 flex">
+		<div class="absolute right-10 top-10 flex">
 			<div class="flex items-center justify-center">
 				<div
 					class="flex items-center justify-center bg-black"
