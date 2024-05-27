@@ -49,6 +49,8 @@
 	<meta property="twitter:card" content="summary_large_image" />
 	<meta property="twitter:title" content={meta.title} />
 	<meta property="twitter:description" content={meta.description} />
+	<meta property="og:image:width" content="800" />
+	<meta property="og:image:height" content="600" />
 </svelte:head>
 
 <div class="scrollable-area bg-white">

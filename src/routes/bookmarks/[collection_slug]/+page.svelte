@@ -36,7 +36,7 @@
 	<meta property="twitter:description" content={`${data.title} Bookmarks`} />
 </svelte:head>
 
-<div class="scrollable-area">
+<div class="scrollable-area bg-grid">
 	<div class="content-wrapper mx-auto w-screen lg:max-w-[30rem] xl:max-w-[52rem]">
 		<div class="content mb-24">
 			<PageTitle title={data.title} />
