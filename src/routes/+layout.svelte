@@ -1,8 +1,9 @@
 <script lang="ts">
-	import { goto, onNavigate } from '$app/navigation';
-	import { MenuContent, Metatags, Navbar } from '$lib/components/site';
-	import '../app.pcss';
+	import { onNavigate } from '$app/navigation';
+	import { page } from '$app/stores';
+	import { MenuContent, Navbar } from '$lib/components/site';
 	import { Toaster } from '$lib/components/ui/sonner';
+	import '../app.pcss';
 
 	const preparePageTransition = () => {
 		onNavigate((navigation) => {
@@ -17,12 +18,35 @@
 	};
 
 	preparePageTransition();
+
+	let title = 'Prabhu Kiran Konda';
+	let description = 'Electrical Engineer, Software Developer and Writer';
 </script>
 
-<Metatags
-	title="Prabhu Kiran Konda"
-	description="Electrical Engineer, Software Developer, and Writer"
-/>
+<svelte:head>
+	<title>{title}</title>
+	<meta property="description" content={description} />
+
+	<meta
+		property="og:image"
+		content={`https://v3-prabhukirankonda.vercel.app/social.png?title=${title}&description=${description}`}
+	/>
+
+	<meta property="og:description" content={description} />
+	<meta property="og:title" content={title} />
+	<meta
+		name="twitter:image"
+		property="twitter:image"
+		content={`https://v3-prabhukirankonda.vercel.app/social.png?title=${title}&description=${description}`}
+	/>
+	<meta property="og:url" content={$page.url.href} />
+	<meta name="twitter:card" property="twitter:card" content="summary_large_image" />
+	<meta name="twitter:image:alt" property="twitter:title" content={title} />
+	<meta name="twitter:title" property="twitter:title" content={title} />
+	<meta name="twitter:description" property="twitter:description" content={description} />
+	<meta name="twitter:site" content="@prabhukirantwt" />
+	<meta name="twitter:creator" content="@prabhukirantwt" />
+</svelte:head>
 
 <Toaster />
 
