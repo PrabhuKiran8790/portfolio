@@ -1,6 +1,6 @@
 <script>
 	import { headerTitle } from '$lib/stores';
-	import { PostsList } from '$lib/components/site';
+	import { Metatags, PostsList } from '$lib/components/site';
 	import { seriesPostCoverFolder } from '$lib/stores';
 	import { Card, Masonry } from '$lib/components/site';
 
@@ -15,6 +15,8 @@
 		$headerTitle = 'Writing';
 	}
 </script>
+
+<Metatags title="Writing" description="Learnings, thoughts, and experiences" />
 
 <div class="lg:hidden">
 	<PostsList posts={data.posts} seriesPosts={data.seriesPosts} />

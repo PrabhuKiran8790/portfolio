@@ -26,7 +26,7 @@
 	{:else}
 		<meta
 			property="og:image"
-			content={`https://v3-prabhukirankonda.vercel.app/social.png?title=${meta.title}&isSeries=true&currentPart=${data.seriesPost?.subPosts.find((post) => post.title === meta.title)?.order}&CoverFolderName=${data.seriesPost.title}&totalParts=${data.seriesPost.subPosts.length}`}
+			content={`https://v3-prabhukirankonda.vercel.app/writing/social.png?title=${meta.title}&isSeries=true&currentPart=${data.seriesPost?.subPosts.find((post) => post.title === meta.title)?.order}&CoverFolderName=${data.seriesPost.title}&totalParts=${data.seriesPost.subPosts.length}`}
 		/>
 	{/if}
 	<meta property="og:description" content={meta.description} />
@@ -39,7 +39,7 @@
 	{:else}
 		<meta
 			property="twitter:image"
-			content={`https://v3-prabhukirankonda.vercel.app/social.png?title=${meta.title}&isSeries=true&currentPart=${data.seriesPost?.subPosts.find((post) => post.title === meta.title)?.order}&CoverFolderName=${data.seriesPost.title}&totalParts=${data.seriesPost.subPosts.length}`}
+			content={`https://v3-prabhukirankonda.vercel.app/writing/social.png?title=${meta.title}&isSeries=true&currentPart=${data.seriesPost?.subPosts.find((post) => post.title === meta.title)?.order}&CoverFolderName=${data.seriesPost.title}&totalParts=${data.seriesPost.subPosts.length}`}
 		/>
 	{/if}
 	<meta

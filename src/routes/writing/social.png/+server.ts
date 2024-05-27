@@ -18,7 +18,10 @@ export async function GET({ url }) {
 	// @ts-expect-error svelte SSR
 	const result = Comp.render({
 		title: url.searchParams.get('title'),
-		count: url.searchParams.get('count')
+		isSeries: url.searchParams.get('isSeries') === 'true',
+		CoverFolderName: url.searchParams.get('CoverFolderName'),
+		totalParts: url.searchParams.get('totalParts'),
+		currentPart: url.searchParams.get('currentPart')
 	});
 	const markup = toReactNode(`${result.html}<style>${result.css.code}</style>`);
 	const svg = await satori(markup, {

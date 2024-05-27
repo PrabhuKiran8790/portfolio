@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Card, PageTitle } from '$lib/components/site';
+	import { Card, Metatags, PageTitle } from '$lib/components/site';
 	import { Button } from '$lib/components/ui/button';
 	import { Masonry } from '$lib/components/site';
 	import { work } from '$lib/config';
@@ -12,6 +12,11 @@
 		$headerTitle = 'Prabhu Kiran Konda';
 	}
 </script>
+
+<Metatags
+	title="Prabhu Kiran Konda"
+	description="Electrical Engineer, Software Developer, and Writer"
+/>
 
 <Scrollarea class="w-full">
 	<div class="content-wrapper relative flex w-full flex-col">

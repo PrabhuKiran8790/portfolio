@@ -1,5 +1,6 @@
 <script>
 	import { page } from '$app/stores';
+	import { Metatags } from '$lib/components/site';
 	import { headerTitle } from '$lib/stores';
 	import { cn } from '$lib/utils';
 	export let data;
@@ -10,6 +11,8 @@
 
 	$: collections = data.collections;
 </script>
+
+<Metatags title="Bookmarks" description="A collection of bookmarks that I find interesting" />
 
 <div class="lg:hidden">
 	<div class="scrollable-area flex flex-col gap-2 p-2">

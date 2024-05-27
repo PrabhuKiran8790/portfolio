@@ -2,7 +2,7 @@
 	import { cn } from '$lib/utils';
 	import { headerTitle } from '$lib/stores';
 	import { Calendar, CalendarIcon, PlusIcon } from 'lucide-svelte';
-	import { PageTitle } from '$lib/components/site';
+	import { PageTitle, Metatags } from '$lib/components/site';
 	export let data;
 
 	$: {
@@ -13,6 +13,8 @@
 		return index === array.length - 1;
 	}
 </script>
+
+<Metatags title="Journey" description="My journey through the years" />
 
 <div class="scrollable-area relative flex w-full flex-col">
 	<div

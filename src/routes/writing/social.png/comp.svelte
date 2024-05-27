@@ -1,6 +1,9 @@
 <script>
 	export let title = '';
-	export let count = 1;
+	export let totalParts = 3;
+	export let currentPart = 1;
+	export let CoverFolderName = '';
+	export let isSeries = false;
 </script>
 
 <!-- <div
@@ -28,19 +31,21 @@
 		position: relative
 	"
 >
-	<div class="absolute right-10 top-10 flex">
-		<div class="flex items-center justify-center">
-			<div
-				class="flex items-center justify-center bg-black"
-				style="
-				border-radius: 32px;
-				width: 6rem;
-				height: 6rem;"
-			>
-				<div class="flex h-12 w-12 rounded-full bg-white"></div>
+	{#if !isSeries}
+		<div class="absolute right-10 top-10 flex">
+			<div class="flex items-center justify-center">
+				<div
+					class="flex items-center justify-center bg-black"
+					style="
+			border-radius: 32px;
+			width: 6rem;
+			height: 6rem;"
+				>
+					<div class="flex h-12 w-12 rounded-full bg-white"></div>
+				</div>
 			</div>
 		</div>
-	</div>
+	{/if}
 	<div
 		style="
 			position: absolute;
@@ -69,6 +74,11 @@
 	>
 		Prabhu Kiran Konda
 	</div>
+	{#if isSeries}
+		<div class="right-15 top-15 absolute flex">
+			{currentPart} / {totalParts}
+		</div>
+	{/if}
 	<span
 		style="
 			display: flex;
@@ -80,17 +90,19 @@
 			width: 80%;
 		"
 	>
-		<div class="flex w-fit">
-			<span
-				class="rounded-full bg-slate-600 px-4 py-2 text-white"
-				style="
-				fontSize: 1.5rem;
-				lineHeight: 1;
-				fontWeight: 300;
-			">Bookmarks</span
-			>
-		</div>
-		<div class="flex flex-col items-start gap-1">
+		{#if isSeries}
+			<div class="flex w-fit">
+				<span
+					class="rounded-full bg-slate-600 px-4 py-2 text-white"
+					style="
+                        fontSize: 1.5rem;
+                        lineHeight: 1;
+                        fontWeight: 300;
+                    ">Series: {CoverFolderName}</span
+				>
+			</div>
+		{/if}
+		<div style="display: flex; alignItems: center; gap: 1rem">
 			<span
 				style="
 					fontSize: 5rem;
@@ -100,7 +112,6 @@
 			>
 				{title}
 			</span>
-			<span class="px-1">{count} bookmarks</span>
 		</div>
 	</span>
 </div>
