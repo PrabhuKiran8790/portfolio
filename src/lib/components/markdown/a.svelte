@@ -11,7 +11,7 @@
 </script>
 
 <a
-	class="inline-flex items-center gap-1 underline underline-offset-4 transition-colors"
+	class="inline-flex items-center gap-1 text-blue-600 transition-colors hover:underline hover:underline-offset-4"
 	{href}
 	{target}
 	{rel}

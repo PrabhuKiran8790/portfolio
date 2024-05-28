@@ -1,7 +1,7 @@
 ---
 title: 'Personal Portfolio + Blog (V2)'
 description: 'New personal portfolio & Markdown blog built with SvelteKit'
-link: https://prabhukirankonda.vercel.app
+link: https://v2-prabhukirankonda.vercel.app
 techstack:
     - SvelteKit
     - TypeScript
