@@ -1,46 +1,54 @@
-<script>
-	import { onMount, onDestroy, getContext, setContext, tick } from 'svelte';
-	export let stretchFirst = false,
-		gridGap = '0.5em',
-		colWidth = 'minmax(Min(20em, 100%), 1fr)',
-		items = []; // pass in data if it's dynamically updated
-	let grids = [],
-		masonryElement;
+<script lang="ts">
+	import { onMount, onDestroy, tick } from 'svelte';
 
-	export let reset;
-	$: if (reset) {
-		masonryElement = masonryElement;
+	interface MasonryProps {
+		stretchFirst?: boolean;
+		gridGap?: string;
+		colWidth?: string;
+		items?: any[];
+		reset?: boolean;
 	}
 
-	export const refreshLayout = async () => {
-		// console.log("REFRESHING LAYOUT")
+	interface GridItem {
+		_el: HTMLElement;
+		gap: number;
+		items: HTMLElement[];
+		ncol: number;
+		mod: number;
+	}
+
+	export let stretchFirst = false;
+	export let gridGap = '0.5em';
+	export let colWidth = 'minmax(Min(20em, 100%), 1fr)';
+	export let items: any[] = [];
+	export let reset = false;
+
+	let grids: GridItem[] = [];
+	let masonryElement: HTMLElement | null = null;
+
+	const refreshLayout = async (): Promise<void> => {
 		grids.forEach(async (grid) => {
-			/* get the post relayout number of columns */
-			let ncol = getComputedStyle(grid._el).gridTemplateColumns.split(' ').length;
+			const ncol = getComputedStyle(grid._el).gridTemplateColumns.split(' ').length;
 
 			grid.items.forEach((c) => {
-				let new_h = c.getBoundingClientRect().height;
+				const newHeight = c.getBoundingClientRect().height;
+				const currentHeight = parseFloat(c.dataset.h || '0');
 
-				if (new_h !== +c.dataset.h) {
-					c.dataset.h = new_h;
+				if (newHeight !== currentHeight) {
+					c.dataset.h = newHeight.toString();
 					grid.mod++;
 				}
 			});
 
-			/* if the number of columns has changed */
 			if (grid.ncol !== ncol || grid.mod) {
-				/* update number of columns */
 				grid.ncol = ncol;
-				/* revert to initial positioning, no margin */
 				grid.items.forEach((c) => c.style.removeProperty('margin-top'));
-				/* if we have more than one column */
+
 				if (grid.ncol > 1) {
 					grid.items.slice(ncol).forEach((c, i) => {
-						let prev_fin =
-								grid.items[i].getBoundingClientRect().bottom /* bottom edge of item above */,
-							curr_ini = c.getBoundingClientRect().top; /* top edge of current item */
-
-						c.style.marginTop = `${prev_fin + grid.gap - curr_ini}px`;
+						const prevBottom = grid.items[i].getBoundingClientRect().bottom;
+						const currTop = c.getBoundingClientRect().top;
+						c.style.marginTop = `${prevBottom + grid.gap - currTop}px`;
 					});
 				}
 
@@ -49,32 +57,35 @@
 		});
 	};
 
-	const calcGrid = async (_masonryArr) => {
+	const calcGrid = async (masonryArr: HTMLElement[]): Promise<void> => {
 		await tick();
-		if (_masonryArr.length && getComputedStyle(_masonryArr[0]).gridTemplateRows !== 'masonry') {
-			grids = _masonryArr.map((grid) => {
-				return {
-					_el: grid,
-					gap: parseFloat(getComputedStyle(grid).gridRowGap),
-					items: [...grid.childNodes].filter(
-						(c) => c.nodeType === 1 && +getComputedStyle(c).gridColumnEnd !== -1
-					),
-					ncol: 0,
-					mod: 0
-				};
-			});
-			refreshLayout(); /* initial load */
+
+		if (masonryArr.length && getComputedStyle(masonryArr[0]).gridTemplateRows !== 'masonry') {
+			grids = masonryArr.map((grid) => ({
+				_el: grid,
+				gap: parseFloat(getComputedStyle(grid).gridRowGap),
+				items: Array.from(grid.childNodes).filter(
+					(c): c is HTMLElement =>
+						c instanceof HTMLElement && +getComputedStyle(c).gridColumnEnd !== -1
+				),
+				ncol: 0,
+				mod: 0
+			}));
+
+			refreshLayout();
 		}
 	};
 
-	let _window;
+	let _window: Window | undefined;
+
 	onMount(() => {
 		_window = window;
-		_window.addEventListener('resize', refreshLayout, false); /* on resize */
+		_window.addEventListener('resize', refreshLayout, false);
 	});
+
 	onDestroy(() => {
 		if (_window) {
-			_window.removeEventListener('resize', refreshLayout, false); /* on resize */
+			_window.removeEventListener('resize', refreshLayout, false);
 		}
 	});
 
@@ -82,45 +93,18 @@
 		calcGrid([masonryElement]);
 	}
 
-	$: if (items) {
-		// update if items are changed
-		masonryElement = masonryElement; // refresh masonryElement
+	$: if (items.length || reset) {
+		masonryElement = masonryElement;
 	}
 </script>
-
-<!-- 
-  An almost direct copy and paste of: https://css-tricks.com/a-lightweight-masonry-solution
-  
-  Usage:
-    - stretchFirst stretches the first item across the top
-
-  <Masonry stretchFirst={true} >
-    {#each data as o}
-      <div class="_card _padding">
-        Here's some stuff {o.name}
-        <header>
-          <h3>{o.name}</h3>
-        </header>
-        <section>
-          <p>{o.text}</p> 
-        </section>
-      </div>
-    {/each}
-  </Masonry>
- -->
 
 <div
 	bind:this={masonryElement}
 	class={`__grid--masonry ${stretchFirst ? '__stretch-first' : ''}`}
 	style={`--grid-gap: ${gridGap}; --col-width: ${colWidth};`}
 >
-	<slot />
+	<slot></slot>
 </div>
-
-<!-- 
-  $w: var(--col-width); // minmax(Min(20em, 100%), 1fr);
-  $s: var(--grid-gap); // .5em;
- -->
 
 <style>
 	:global(.__grid--masonry) {
