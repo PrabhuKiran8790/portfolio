@@ -15,7 +15,7 @@
 
 <Scrollarea class="w-full">
 	<div class="content-wrapper relative flex w-full flex-col">
-		<div>Work in progress 🚧</div>
+		<p>Work in progress 🚧</p>
 		<div class="content">
 			<PageTitle title="Home" class="lg:hidden" />
 			<p>
