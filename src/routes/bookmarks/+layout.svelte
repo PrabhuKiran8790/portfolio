@@ -2,7 +2,7 @@
 	import { headerTitle } from '$lib/stores.svelte';
 	import { page } from '$app/stores';
 	import { cn } from '$lib/utils';
-	let { data } = $props();
+	let { data, children } = $props();
 
 	headerTitle.value = 'Bookmarks';
 
@@ -35,5 +35,5 @@
 	</div>
 </div>
 <div class="lg:bg-grid flex-1 bg-white">
-	<slot />
+	{@render children()}
 </div>

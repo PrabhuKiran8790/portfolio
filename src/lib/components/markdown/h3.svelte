@@ -1,22 +1,30 @@
 <script lang="ts">
 	import { cn } from '$lib/utils';
+	import type { Snippet } from 'svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
 
-	let className: string | undefined | null = undefined;
-	export { className as class };
+	let {
+		class: className = undefined,
+		children,
+		...restprops
+	}: HTMLAttributes<HTMLHeadingElement> & {
+		class: string | undefined | null;
+		children: Snippet;
+	} = $props();
 </script>
 
-<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 <h3
 	class={cn(
 		`group relative mb-2 mt-6 w-fit cursor-pointer before:absolute before:-left-4 hover:before:content-['#']`,
 		className
 	)}
-	{...$$restProps}
-	on:click={() => {
-		if (window.location.hash !== `#${$$restProps.id}`) {
-			window.location.hash = `#${$$restProps.id}`;
+	{...restprops}
+	onclick={() => {
+		if (window.location.hash !== `#${restprops}.id}`) {
+			window.location.hash = `#${restprops}.id}`;
 		}
 	}}
 >
-	<slot />
+	{@render children()}
 </h3>
