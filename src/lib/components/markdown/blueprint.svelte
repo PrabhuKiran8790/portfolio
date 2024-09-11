@@ -1,5 +1,4 @@
 <script module>
-	// import '../../../app.pcss';
 	import './markdown.pcss';
 	import {
 		a,
@@ -21,18 +20,9 @@
 	export { a, h1, h2, h3, h4, h5, blockquote, pre, p, li, ol, ul, hr, img };
 </script>
 
-<script>
-	// these props are what we expect in frontmatter
-	// typescript cannot be used in this file.
-	export let title;
-	export let date;
-	export let description;
-	export let tags;
-	export let image;
-	export let draft;
-	export let icon;
-	export let useIconInHome;
-	export let order;
+<script lang="ts">
+	import type { Snippet } from 'svelte';
+	let { children }: { children: Snippet } = $props();
 </script>
 
 <svelte:head>
@@ -44,4 +34,6 @@
 	/>
 </svelte:head>
 
-<slot {title} {date} {description} {tags} {image} {draft} {icon} {useIconInHome} {order} />
+<!-- <slot {title} {date} {description} {tags} {image} {draft} {icon} {useIconInHome} {order} /> -->
+
+{@render children()}

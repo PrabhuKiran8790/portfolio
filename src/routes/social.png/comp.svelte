@@ -1,11 +1,5 @@
 <script>
-	let {
-		title = '',
-		totalParts = 3,
-		currentPart = 1,
-		CoverFolderName = '',
-		isSeries = false
-	} = $props();
+	let { title = '', description = '' } = $props();
 </script>
 
 <div
@@ -17,21 +11,19 @@
 		position: relative
 	"
 >
-	{#if !isSeries}
-		<div class="absolute right-10 top-10 flex">
-			<div class="flex items-center justify-center">
-				<div
-					class="flex items-center justify-center bg-black"
-					style="
-			border-radius: 32px;
-			width: 6rem;
-			height: 6rem;"
-				>
-					<div class="flex h-12 w-12 rounded-full bg-white"></div>
-				</div>
+	<div class="absolute right-10 top-10 flex">
+		<div class="flex items-center justify-center">
+			<div
+				class="flex items-center justify-center bg-black"
+				style="
+				border-radius: 32px;
+				width: 6rem;
+				height: 6rem;"
+			>
+				<div class="flex h-12 w-12 rounded-full bg-white"></div>
 			</div>
 		</div>
-	{/if}
+	</div>
 	<div
 		style="
 			position: absolute;
@@ -60,35 +52,18 @@
 	>
 		Prabhu Kiran Konda
 	</div>
-	{#if isSeries}
-		<div class="right-15 top-15 absolute flex">
-			{currentPart} / {totalParts}
-		</div>
-	{/if}
 	<span
 		style="
 			display: flex;
 			flexDirection: column;
 			gap: 0.5rem;
 			position: absolute;
-			bottom: 100;
+			bottom: 120;
 			left: 60;
 			width: 80%;
 		"
 	>
-		{#if isSeries}
-			<div class="flex w-fit">
-				<span
-					class="rounded-full bg-slate-600 px-4 py-2 text-white"
-					style="
-                        fontSize: 1.5rem;
-                        lineHeight: 1;
-                        fontWeight: 300;
-                    ">Series: {CoverFolderName}</span
-				>
-			</div>
-		{/if}
-		<div style="display: flex; alignItems: center; gap: 1rem">
+		<div class="flex flex-col items-start" style="gap: 12px">
 			<span
 				style="
 					fontSize: 5rem;
@@ -98,6 +73,14 @@
 			>
 				{title}
 			</span>
+			<span
+				class="px-1"
+				style="
+					fontSize: 2rem;
+					lineHeight: 1;
+					fontWeight: 300;
+				">{description}</span
+			>
 		</div>
 	</span>
 </div>

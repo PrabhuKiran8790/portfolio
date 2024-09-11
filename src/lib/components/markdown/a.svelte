@@ -1,22 +1,26 @@
 <script lang="ts">
 	import { ExternalLink } from 'lucide-svelte';
+	import type { Snippet } from 'svelte';
 
-	export let href: string;
-	export let rel: string | undefined = undefined;
+	let {
+		href,
+		children
+	}: {
+		href: string;
+		children: Snippet;
+	} = $props();
 
-	$: internal = href.startsWith('/') || href.startsWith('#');
-
-	$: rel = !internal ? 'noopener noreferrer' : undefined;
-	$: target = !internal ? '_blank' : undefined;
+	const internal = $derived(href.startsWith('/') || href.startsWith('#'));
 </script>
 
 <a
 	class="inline-flex items-center gap-1 text-blue-600 transition-colors hover:underline hover:underline-offset-4"
 	{href}
-	{target}
-	{rel}
+	target={!internal ? '_blank' : undefined}
+	rel={!internal ? 'noopener noreferrer' : undefined}
 >
-	<slot />
+	{@render children()}
+
 	{#if !internal}
 		<ExternalLink class="h-3 w-3" />
 	{/if}

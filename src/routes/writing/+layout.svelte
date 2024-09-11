@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { headerTitle } from '$lib/stores.svelte';
 	import { PostsList } from '$lib/components/site';
-	export let data;
 
+	let { data, children } = $props();
 	headerTitle.value = 'Writing';
 </script>
 
@@ -15,5 +15,5 @@
 	<PostsList posts={data.posts} seriesPosts={data.seriesPosts} />
 </div>
 <div class="lg:bg-dots flex-1 bg-white">
-	<slot />
+	{@render children()}
 </div>

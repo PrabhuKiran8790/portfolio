@@ -1,12 +1,11 @@
 <script lang="ts">
-	import { page } from '$app/stores';
 	import { Card, Masonry, PageTitle } from '$lib/components/site';
 	import Scrollarea from '$lib/components/site/scrollarea.svelte';
 	import { Button } from '$lib/components/ui/button';
 	import { work } from '$lib/config';
 	import { headerTitle } from '$lib/stores.svelte';
 
-	export let data;
+	let { data } = $props();
 
 	headerTitle.value = 'Prabhu Kiran Konda';
 </script>
@@ -31,7 +30,7 @@
 			<div class="blog-cards">
 				<Masonry items={data.posts} gridGap={'1rem'} stretchFirst={false} reset>
 					{#each data.posts as post}
-						<Card title={post.title} image={post.image} {post} />
+						<Card title={post.title} image={post.image || ''} {post} />
 					{/each}
 				</Masonry>
 			</div>

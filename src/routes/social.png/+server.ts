@@ -2,7 +2,8 @@ import { Resvg } from '@resvg/resvg-js';
 import satori from 'satori';
 import { html as toReactNode } from 'satori-html';
 import Comp from './comp.svelte';
-import sourceSerifPro from '../../social.png/Satoshi-Bold.ttf';
+import sourceSerifPro from './Satoshi-Bold.ttf';
+
 import { read } from '$app/server';
 import { render } from 'svelte/server';
 const fontData = read(sourceSerifPro).arrayBuffer();
@@ -14,13 +15,9 @@ export async function GET({ url }) {
 	const result = render(Comp, {
 		props: {
 			title: url.searchParams.get('title')!,
-			isSeries: url.searchParams.get('isSeries') === 'true'!,
-			CoverFolderName: url.searchParams.get('CoverFolderName')!,
-			totalParts: +url.searchParams.get('totalParts')!,
-			currentPart: +url.searchParams.get('currentPart')!
+			description: url.searchParams.get('description')!
 		}
 	});
-
 	const markup = toReactNode(`${result.body}`);
 	const svg = await satori(markup, {
 		fonts: [

@@ -1,9 +1,7 @@
 <script lang="ts">
 	import { cn } from '$lib/utils';
 
-	export let src: string = '';
-	export let className: string = '';
-	export let title: string = '';
+	let { src = '', className = '', title = '' } = $props();
 </script>
 
 <div class="flex flex-col gap-0.5">

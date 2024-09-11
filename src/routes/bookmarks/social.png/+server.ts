@@ -14,13 +14,11 @@ export async function GET({ url }) {
 	const result = render(Comp, {
 		props: {
 			title: url.searchParams.get('title')!,
-			isSeries: url.searchParams.get('isSeries') === 'true'!,
-			CoverFolderName: url.searchParams.get('CoverFolderName')!,
-			totalParts: +url.searchParams.get('totalParts')!,
-			currentPart: +url.searchParams.get('currentPart')!
+			count: +url.searchParams.get('count')!
 		}
 	});
 
+	console.log(result);
 	const markup = toReactNode(`${result.body}`);
 	const svg = await satori(markup, {
 		fonts: [

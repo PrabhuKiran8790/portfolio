@@ -7,7 +7,7 @@ function extractModulesWithFilename(modules: Record<string, Module>): ModuleWith
 	const result: ModuleWithFilename[] = [];
 
 	for (const path in modules) {
-		if (Object.prototype.hasOwnProperty.call(modules, path)) {
+		if (Object.hasOwn(modules, path)) {
 			const fileNameWithExtension = path.split('/').pop();
 
 			if (!fileNameWithExtension) {
@@ -27,7 +27,7 @@ function extractModulesWithFilename(modules: Record<string, Module>): ModuleWith
 	return result;
 }
 export const load = async () => {
-	const data = import.meta.glob('/works/*.md', { eager: true }) as Record<string, Module>;
+	const data: Record<string, Module> = import.meta.glob('/works/*.md', { eager: true });
 	const modules = extractModulesWithFilename(data);
 
 	return {
