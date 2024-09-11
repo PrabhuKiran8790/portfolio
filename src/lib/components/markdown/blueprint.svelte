@@ -1,4 +1,4 @@
-<script context="module">
+<script module>
 	// import '../../../app.pcss';
 	import './markdown.pcss';
 	import {
