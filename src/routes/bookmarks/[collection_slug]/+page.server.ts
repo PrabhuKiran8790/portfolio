@@ -3,8 +3,9 @@ import type { Bookmark } from '$lib/types';
 
 export const load = async ({ params, parent, fetch }) => {
 	const { collections } = await parent();
+	const awaitedCollections = await collections;
 
-	const collection_id = collections.find(
+	const collection_id = awaitedCollections.find(
 		(collection) => collection.slug === params.collection_slug
 	)?._id;
 
@@ -21,6 +22,7 @@ export const load = async ({ params, parent, fetch }) => {
 	const { items } = await response.json();
 	return {
 		bookmarks: items as Bookmark[],
-		title: collections.find((collection) => collection.slug === params.collection_slug)?.title
+		title: awaitedCollections.find((collection) => collection.slug === params.collection_slug)
+			?.title
 	};
 };
