@@ -3,7 +3,10 @@
 	import { page } from '$app/stores';
 	import { cn } from '$lib/utils';
 	import { Skeleton } from '$lib/components/ui/skeleton';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 023a80b838da0f6c72504e0b6440c3621f05cf17
 	let { data, children } = $props();
 	headerTitle.value = 'Bookmarks';
 	const collections = $derived(data.collections);

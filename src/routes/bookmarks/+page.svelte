@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script>
 	import { page } from '$app/stores';
 	import { headerTitle } from '$lib/stores.svelte';
@@ -42,3 +43,5 @@
 		{/await}
 	</div>
 </div>
+=======
+>>>>>>> 023a80b838da0f6c72504e0b6440c3621f05cf17
