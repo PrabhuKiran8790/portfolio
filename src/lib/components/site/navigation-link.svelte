@@ -3,6 +3,7 @@
 	import { cn } from '$lib/utils';
 	import { ArrowUpRight } from 'lucide-svelte';
 	import type { Component } from 'svelte';
+	import Particles from './particles.svelte';
 
 	let {
 		href = '/',
@@ -29,7 +30,7 @@
 <a
 	{href}
 	class={cn(
-		'group flex items-center justify-between rounded-lg p-2 text-sm transition-colors duration-300',
+		'group relative flex items-center justify-between rounded-lg p-2 text-sm transition-colors duration-300',
 		isActive ? 'bg-black text-white' : 'hover:bg-gray-200'
 	)}
 	target={isExternal ? '_blank' : ''}
@@ -53,5 +54,8 @@
 
 	{#if isExternal}
 		<ArrowUpRight size={16} />
+	{/if}
+	{#if isActive}
+		<Particles class="absolute inset-0" refresh={true} />
 	{/if}
 </a>

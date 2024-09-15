@@ -3,6 +3,7 @@
 	import { page } from '$app/stores';
 	import { cn } from '$lib/utils';
 	import { Skeleton } from '$lib/components/ui/skeleton';
+	import Particles from '$lib/components/site/particles.svelte';
 
 	let { data, children } = $props();
 	headerTitle.value = 'Bookmarks';
@@ -32,7 +33,7 @@
 					href={`/bookmarks/${collection.slug}`}
 					data-sveltekit-preload-data
 					class={cn(
-						'flex flex-col gap-1 rounded-lg p-2 transition-colors duration-300 [&>*]:transition-colors [&>*]:duration-300',
+						'relative flex flex-col gap-1 rounded-lg p-2 transition-colors duration-300 [&>*]:transition-colors [&>*]:duration-300',
 						isActive ? 'bg-black' : 'hover:bg-gray-200'
 					)}
 				>
@@ -40,6 +41,9 @@
 					<span class={cn('font-medium', isActive ? 'text-slate-400' : 'text-slate-500')}
 						>{collection.count} bookmark{collection.count > 1 ? 's' : ''}
 					</span>
+					{#if isActive}
+						<Particles class="absolute inset-0" refresh={true} />
+					{/if}
 				</a>
 			{/each}
 		{:catch error}

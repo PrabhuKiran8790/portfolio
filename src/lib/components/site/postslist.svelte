@@ -7,6 +7,7 @@
 	import { cn, formatDate } from '$lib/utils';
 	import { cubicInOut } from 'svelte/easing';
 	import { crossfade } from 'svelte/transition';
+	import Particles from './particles.svelte';
 
 	let {
 		posts = [],
@@ -76,7 +77,7 @@
 						seriesPostCoverFolder.value = '';
 					}}
 					class={cn(
-						'flex flex-col gap-1 rounded-lg p-2 transition-colors duration-300 [&>*]:transition-colors [&>*]:duration-300',
+						'[&>*] :duration-300 relative flex flex-col gap-1 rounded-lg p-2 transition-colors duration-300 [&>*]:transition-colors',
 						isActive ? 'bg-black' : 'hover:bg-gray-200'
 					)}
 				>
@@ -84,6 +85,9 @@
 					<span class={cn('font-medium', isActive ? 'text-slate-400' : 'text-slate-500')}
 						>{formatDate(post.date)}</span
 					>
+					{#if isActive}
+						<Particles class="absolute inset-0" refresh={true} />
+					{/if}
 				</a>
 			{/each}
 		</div>

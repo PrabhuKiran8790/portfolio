@@ -2,6 +2,7 @@
 	import type { ModuleWithFilename } from '$lib/types';
 	import { cn } from '$lib/utils';
 	import Link2Icon from 'lucide-svelte/icons/link-2';
+	import Particles from './particles.svelte';
 
 	let {
 		works = [],
@@ -27,7 +28,7 @@
 		<!-- svelte-ignore a11y_no_static_element_interactions -->
 		<div
 			class={cn(
-				'active:bg-gra-200 flex flex-col gap-1 rounded-lg p-2 transition-colors duration-300 hover:cursor-pointer [&>*]:transition-colors [&>*]:duration-300',
+				'active:bg-gra-200 relative flex flex-col gap-1 rounded-lg p-2 transition-colors duration-300 hover:cursor-pointer [&>*]:transition-colors [&>*]:duration-300',
 				isActive ? 'lg:bg-black' : 'lg:hover:bg-gray-200'
 			)}
 			onclick={() => {
@@ -44,6 +45,9 @@
 					{work.metadata.link.replace('https://', '')}
 				</span>
 			</span>
+			{#if isActive}
+				<Particles class="absolute inset-0" refresh={true} />
+			{/if}
 		</div>
 	{/each}
 </div>
