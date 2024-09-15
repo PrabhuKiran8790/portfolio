@@ -187,9 +187,6 @@
 			window.addEventListener('resize', resizeCanvas);
 			window.addEventListener('mousemove', onMouseMove);
 		}
-
-		console.log('building stage');
-
 		return () => {
 			window.removeEventListener('resize', resizeCanvas);
 			window.removeEventListener('mousemove', onMouseMove);
@@ -200,7 +197,6 @@
 		if (canvasRef) {
 			drawParticles();
 		}
-		console.log('building stage');
 	});
 	//   Building Stage
 </script>

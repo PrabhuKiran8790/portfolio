@@ -54,6 +54,7 @@
 					in:send={{ key: 'active' }}
 					out:receive={{ key: 'active' }}
 				></div>
+				<Particles class="absolute inset-0" refresh={true} />
 			{/if}
 		</Tabs.Trigger>
 		<Tabs.Trigger value="series" class="relative w-full">
@@ -64,6 +65,7 @@
 					in:send={{ key: 'active' }}
 					out:receive={{ key: 'active' }}
 				></div>
+				<Particles class="absolute inset-0" refresh={true} />
 			{/if}
 		</Tabs.Trigger>
 	</Tabs.List>
@@ -129,7 +131,7 @@
 								<a
 									href={`/writing/${subPost.slug}`}
 									class={cn(
-										'mb-1 flex flex-col gap-1 rounded-lg p-2 transition-colors duration-300 [&>*]:transition-colors [&>*]:duration-300',
+										'relative mb-1 flex flex-col gap-1 rounded-lg p-2 transition-colors duration-300 [&>*]:transition-colors [&>*]:duration-300',
 										isActive ? 'bg-black' : 'hover:bg-gray-200'
 									)}
 								>
@@ -137,6 +139,9 @@
 									<span class={cn('font-medium', isActive ? 'text-slate-400' : 'text-slate-500')}
 										>{formatDate(subPost.date)}</span
 									>
+									{#if isActive}
+										<Particles class="absolute inset-0" refresh={true} />
+									{/if}
 								</a>
 							{/each}
 						</Accordion.Content>
