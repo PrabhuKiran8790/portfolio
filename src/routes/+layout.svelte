@@ -22,9 +22,7 @@
 </script>
 
 <Metatags />
-
 <Toaster />
-
 <div class="fixed h-full w-full lg:flex" data-vaul-drawer-wrapper="">
 	<div
 		class="scrollable-area hidden h-full border-r bg-zinc-50 text-sm font-light lg:block lg:w-60 xl:w-72"
