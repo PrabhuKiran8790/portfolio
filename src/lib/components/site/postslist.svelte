@@ -7,7 +7,6 @@
 	import { cn, formatDate } from '$lib/utils';
 	import { cubicInOut } from 'svelte/easing';
 	import { crossfade } from 'svelte/transition';
-	import Particles from './particles.svelte';
 
 	let {
 		posts = [],
@@ -54,7 +53,6 @@
 					in:send={{ key: 'active' }}
 					out:receive={{ key: 'active' }}
 				></div>
-				<Particles class="absolute inset-0" refresh={true} />
 			{/if}
 		</Tabs.Trigger>
 		<Tabs.Trigger value="series" class="relative w-full">
@@ -65,7 +63,6 @@
 					in:send={{ key: 'active' }}
 					out:receive={{ key: 'active' }}
 				></div>
-				<Particles class="absolute inset-0" refresh={true} />
 			{/if}
 		</Tabs.Trigger>
 	</Tabs.List>
@@ -87,9 +84,6 @@
 					<span class={cn('font-medium', isActive ? 'text-slate-400' : 'text-slate-500')}
 						>{formatDate(post.date)}</span
 					>
-					{#if isActive}
-						<Particles class="absolute inset-0" refresh={true} />
-					{/if}
 				</a>
 			{/each}
 		</div>
@@ -131,7 +125,7 @@
 								<a
 									href={`/writing/${subPost.slug}`}
 									class={cn(
-										'relative mb-1 flex flex-col gap-1 rounded-lg p-2 transition-colors duration-300 [&>*]:transition-colors [&>*]:duration-300',
+										'mb-1 flex flex-col gap-1 rounded-lg p-2 transition-colors duration-300 [&>*]:transition-colors [&>*]:duration-300',
 										isActive ? 'bg-black' : 'hover:bg-gray-200'
 									)}
 								>
@@ -139,9 +133,6 @@
 									<span class={cn('font-medium', isActive ? 'text-slate-400' : 'text-slate-500')}
 										>{formatDate(subPost.date)}</span
 									>
-									{#if isActive}
-										<Particles class="absolute inset-0" refresh={true} />
-									{/if}
 								</a>
 							{/each}
 						</Accordion.Content>
