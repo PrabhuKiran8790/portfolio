@@ -19,7 +19,7 @@ export const load = async ({ params, parent, fetch, setHeaders }) => {
 		}
 	});
 
-	setHeaders({ 'cache-control': 'public, max-age=3600' });
+	setHeaders({ 'cache-control': 'public, max-age=300' }); // 5 minutes
 
 	const { items } = await response.json();
 	return {
