@@ -48,7 +48,7 @@
 </svelte:head>
 
 <div class="scrollable-area bg-white">
-	<div class="content-wrapper mx-auto w-screen lg:max-w-[30rem] xl:max-w-[52rem]">
+	<div class="content-wrapper mx-auto w-screen lg:max-w-[30rem] xl:max-w-[40rem] 2xl:max-w-[52rem]">
 		<div class="content mb-24">
 			<PageTitle title={meta.title} subtitle={formatDate(meta.date)} />
 			<div class="mdsvex" id="mdsvex">

@@ -20,8 +20,8 @@
 
 <div class="hidden h-full lg:block">
 	{#if seriesPostCoverFolder.value}
-		<div class="bg-grid flex h-full w-full flex-col items-center justify-center">
-			<div class="p-20">
+		<div class="bg-grid flex h-full w-full flex-wrap items-center justify-center">
+			<div class="p-10">
 				<div>
 					<h1>{item.title}</h1>
 					<p>{item.description}</p>

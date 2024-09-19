@@ -56,7 +56,7 @@
 </svelte:head>
 
 <div class="scrollable-area bg-grid">
-	<div class="content-wrapper mx-auto w-screen lg:max-w-[30rem] xl:max-w-[52rem]">
+	<div class="content-wrapper py-10">
 		<div class="content mb-24">
 			<PageTitle title={data.title} />
 			<div class="-mx-4">
