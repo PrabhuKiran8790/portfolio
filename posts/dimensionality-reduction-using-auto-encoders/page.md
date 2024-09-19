@@ -54,7 +54,7 @@ Let us scale the data so that all our data points lie in the same range
 ```py title="autoencoder.py" {2}#add
 from sklearn.preprocessing import MinMaxScaler
 scaler = MinMaxScaler()
-df_scaled = scaler.fit_transform(df)  # [!code ++]
+df_scaled = scaler.fit_transform(df)  # ++add
 X_train_df = pd.DataFrame(df_scaled, columns=df.columns)
 X_train_df
 ```
@@ -64,7 +64,7 @@ X_train_df
 Let’s build an auto-encoder with a code size of 6.
 
 ```py title="autoencoder.py"
-import tensorflow as tf # [!code ++]
+import tensorflow as tf # ++add
 from tensorflow.keras.layers import Input, Dense
 from tensorflow.keras.models import Model
 # 12, 11, 10, 9, 8, 7, 6, 7, 8, 9, 10, 11, 12

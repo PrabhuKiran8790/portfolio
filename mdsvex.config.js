@@ -306,9 +306,6 @@ function rehypeHandleMetadata() {
 }
 
 function processCustomCodeBlockHighlights(children) {
-	const addPattern = /\/\/\s*\+{2}add/; // Matches both `// ++add` and `//++add`
-	const deletePattern = /\/\/\s*-{2}del/; // Matches both `// --del` and `//--del`
-
 	children.forEach((child) => {
 		if (child.type === 'element' && child.tagName === 'span' && 'data-line' in child.properties) {
 			let shouldAddHighlight = false;
@@ -318,23 +315,26 @@ function processCustomCodeBlockHighlights(children) {
 				if (innerChild.type === 'element' && innerChild.tagName === 'span') {
 					const textNode = innerChild.children.find((c) => c.type === 'text');
 					if (textNode && textNode.value) {
-						// Check and remove the `// ++add` or `//++add`
-						if (addPattern.test(textNode.value)) {
-							shouldAddHighlight = true;
-							// Remove only the `++add` pattern and preserve the rest
-							textNode.value = textNode.value.replace(addPattern, '').trim();
-						}
-						// Check and remove the `// --del` or `//--del`
-						else if (deletePattern.test(textNode.value)) {
-							shouldRemoveHighlight = true;
-							// Remove only the `--del` pattern and preserve the rest
-							textNode.value = textNode.value.replace(deletePattern, '').trim();
-						}
+						const addHighlightPatterns = ['# ++add', '// ++add', '#++add', '//++add'];
+						const removeHighlightPatterns = ['# --del', '// --del', '#--del', '//--del'];
+
+						addHighlightPatterns.forEach((pattern) => {
+							if (textNode.value.includes(pattern)) {
+								shouldAddHighlight = true;
+								textNode.value = textNode.value.replace(pattern, '').trim();
+							}
+						});
+
+						removeHighlightPatterns.forEach((pattern) => {
+							if (textNode.value.includes(pattern)) {
+								shouldRemoveHighlight = true;
+								textNode.value = textNode.value.replace(pattern, '').trim();
+							}
+						});
 					}
 				}
 			});
 
-			// Add the appropriate highlight based on detection
 			if (shouldAddHighlight) {
 				child.properties['data-highlighted-line-id'] = 'add';
 				child.properties['data-highlighted-line'] = '';
@@ -344,7 +344,7 @@ function processCustomCodeBlockHighlights(children) {
 			}
 		}
 
-		// Recursively process child elements
+		// Recursively traverse inner children
 		if (child.children && child.children.length > 0) {
 			processCustomCodeBlockHighlights(child.children);
 		}
