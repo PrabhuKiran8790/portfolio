@@ -1,7 +1,7 @@
 import { RAINDROP_CLIENT_SECRET } from '$env/static/private';
 import type { Bookmark } from '$lib/types';
 
-export const load = async ({ params, parent, fetch }) => {
+export const load = async ({ params, parent, fetch, setHeaders }) => {
 	const { collections } = await parent();
 	const awaitedCollections = await collections;
 
@@ -18,6 +18,8 @@ export const load = async ({ params, parent, fetch }) => {
 			'Content-Type': 'application/json'
 		}
 	});
+
+	setHeaders({ 'cache-control': 'public, max-age=3600' });
 
 	const { items } = await response.json();
 	return {
