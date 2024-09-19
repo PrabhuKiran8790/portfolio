@@ -306,6 +306,9 @@ function rehypeHandleMetadata() {
 }
 
 function processCustomCodeBlockHighlights(children) {
+	const addPattern = /\/\/\s*\+{2}add/; // Matches both `// ++add` and `//++add`
+	const deletePattern = /\/\/\s*-{2}del/; // Matches both `// --del` and `//--del`
+
 	children.forEach((child) => {
 		if (child.type === 'element' && child.tagName === 'span' && 'data-line' in child.properties) {
 			let shouldAddHighlight = false;
@@ -315,29 +318,23 @@ function processCustomCodeBlockHighlights(children) {
 				if (innerChild.type === 'element' && innerChild.tagName === 'span') {
 					const textNode = innerChild.children.find((c) => c.type === 'text');
 					if (textNode && textNode.value) {
-						if (
-							textNode.value.includes('# [!code ++]') ||
-							textNode.value.includes('// [!code ++]')
-						) {
+						// Check and remove the `// ++add` or `//++add`
+						if (addPattern.test(textNode.value)) {
 							shouldAddHighlight = true;
-							textNode.value = textNode.value
-								.replace('# [!code ++]', '')
-								.replace('// [!code ++]', '')
-								.trim();
-						} else if (
-							textNode.value.includes('# [!code --]') ||
-							textNode.value.includes('// [!code --]')
-						) {
+							// Remove only the `++add` pattern and preserve the rest
+							textNode.value = textNode.value.replace(addPattern, '').trim();
+						}
+						// Check and remove the `// --del` or `//--del`
+						else if (deletePattern.test(textNode.value)) {
 							shouldRemoveHighlight = true;
-							textNode.value = textNode.value
-								.replace('# [!code --]', '')
-								.replace('// [!code --]', '')
-								.trim();
+							// Remove only the `--del` pattern and preserve the rest
+							textNode.value = textNode.value.replace(deletePattern, '').trim();
 						}
 					}
 				}
 			});
 
+			// Add the appropriate highlight based on detection
 			if (shouldAddHighlight) {
 				child.properties['data-highlighted-line-id'] = 'add';
 				child.properties['data-highlighted-line'] = '';
@@ -347,7 +344,7 @@ function processCustomCodeBlockHighlights(children) {
 			}
 		}
 
-		// Recursively traverse inner children
+		// Recursively process child elements
 		if (child.children && child.children.length > 0) {
 			processCustomCodeBlockHighlights(child.children);
 		}

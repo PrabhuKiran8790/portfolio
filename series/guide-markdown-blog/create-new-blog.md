@@ -175,8 +175,8 @@ def fibonacci(n):
     if n <= 1: # base case
 		return n
     else:
-		return fibonacci(n - 2) + fibonacci(n - 3) # [!code --]
-		return fibonacci(n - 1) + fibonacci(n - 2) # [!code ++]
+		return fibonacci(n - 2) + fibonacci(n - 3) # --del
+		return fibonacci(n - 1) + fibonacci(n - 2) # ++add
 ```
 ````
 
@@ -187,8 +187,8 @@ def fibonacci(n):
     if n <= 1:
 		return n
     else:
-		return fibonacci(n - 2) + fibonacci(n - 3) # [!code --]
-		return fibonacci(n - 1) + fibonacci(n - 2) # [!code ++]
+		return fibonacci(n - 2) + fibonacci(n - 3) # --del
+		return fibonacci(n - 1) + fibonacci(n - 2) # ++add
 ```
 
 for other languages, like js or ts
@@ -196,8 +196,8 @@ for other languages, like js or ts
 ````md
 ```js title="code-diff.js"
 export function foo() {
-  console.log('hewwo') // [!code --] // this should be hello
-  console.log('hello') // [!code ++]
+  console.log('hewwo') // --del // this should be hello
+  console.log('hello') // ++add
 }
 ```
 ````
@@ -206,8 +206,8 @@ this will become
 
 ```js title="code-diff.js"
 export function foo() {
-  console.log('hewwo') // [!code --] // this should be hello
-  console.log('hello') // [!code ++]
+  console.log('hewwo') // --del // this should be hello
+  console.log('hello') // ++add
 }
 ```
 

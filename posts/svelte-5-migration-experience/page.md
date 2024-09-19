@@ -48,7 +48,7 @@ let's begin my the most obvious changes, `'export let'{:ts}` and slots
 
 	preparePageTransition();
 
-	let { children } = $props(); // [!code ++]
+	let { children } = $props(); // ++add
 </script>
 
 <Metatags />
@@ -61,8 +61,8 @@ let's begin my the most obvious changes, `'export let'{:ts}` and slots
 	</div>
 	<Navbar />
 	<div class="flex flex-1 bg-white">
-    <slot /> // [!code --]
-    {@render children()} // [!code ++]
+    <slot /> // --del
+    {@render children()} // ++add
 	</div>
 </div>
 ```

@@ -28,7 +28,7 @@ To add a new project, you can start by chaging the `src/lib/projects.ts` file.
 
 
 ```ts title="src/lib/projects.ts"
-import type { TechStack } from './icons'; // [!code ++]
+import type { TechStack } from './icons'; // ++add
 
 export type ProjectType = {
 	title: string;
