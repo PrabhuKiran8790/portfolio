@@ -66,6 +66,22 @@
 				creator: '@prabhukirantwt',
 				handle: '@prabhukirantwt'
 			}
+		},
+		{
+			title: 'Work',
+			description: 'A collection of my work',
+			image:
+				'https://prabhukirankonda.vercel.app/social.png?title=Work&description=A collection of my work',
+			url: 'https://prabhukirankonda.vercel.app/work',
+			twitter: {
+				cardType: 'summary_large_image',
+				image:
+					'https://prabhukirankonda.vercel.app/social.png?title=Work&description=A collection of my work',
+				imageAlt: 'Work',
+				site: '@prabhukirantwt',
+				creator: '@prabhukirantwt',
+				handle: '@prabhukirantwt'
+			}
 		}
 	];
 
