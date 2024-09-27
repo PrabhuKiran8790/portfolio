@@ -29,7 +29,7 @@
 </script>
 
 <svelte:head>
-	<title>{data.title}</title>
+	<title>{data.title} | Bookmarks</title>
 	<meta property="description" content={`${data.title} Bookmarks`} />
 
 	<meta
