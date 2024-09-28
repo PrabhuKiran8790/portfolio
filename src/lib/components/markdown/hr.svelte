@@ -1,8 +1,10 @@
 <script lang="ts">
 	import { cn } from '$lib/utils';
 
-	let className: string | undefined | null = undefined;
-	export { className as class };
+	interface Props { [key: string]: any }
+
+	let { class: className = undefined, ...rest }: Props = $props();
+	
 </script>
 
-<hr class={cn('my-4 md:my-8', className)} {...$$restProps} />
+<hr class={cn('my-4 md:my-8', className)} {...rest} />

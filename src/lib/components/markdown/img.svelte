@@ -4,10 +4,14 @@
 	import { dev } from '$app/environment';
 	import { page } from '$app/stores';
 
-	let className: string | undefined | null = undefined;
-	export { className as class };
-	export let src: HTMLImgAttributes['src'] = undefined;
-	export let alt: HTMLImgAttributes['alt'] = undefined;
+	
+	interface Props {
+		class?: string | undefined | null;
+		src?: HTMLImgAttributes['src'];
+		alt?: HTMLImgAttributes['alt'];
+	}
+
+	let { class: className = undefined, src = $bindable(undefined), alt = undefined }: Props = $props();
 
 	if (!dev && (src?.startsWith('/posts') || src?.startsWith('/series'))) {
 		// only convert if starts with /posts because assets in static folder will be processed by vite
@@ -39,7 +43,7 @@
 				{alt}
 				loading="lazy"
 				class="animate-reveal rounded-lg bg-white ring-1 ring-gray-900/10 transition-colors duration-300 hover:shadow-xl lg:rounded-xl"
-				on:error={(e) => {
+				onerror={(e) => {
 					const target = e.target;
 					if (target instanceof HTMLImageElement) {
 						target.onerror = null;
