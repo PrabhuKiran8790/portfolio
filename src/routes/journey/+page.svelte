@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { PageTitle } from '$lib/components/site';
+	import { githubConfig } from '$lib/config.js';
 	import { headerTitle } from '$lib/stores.svelte';
 	import { cn } from '$lib/utils';
 	import CalendarIcon from 'lucide-svelte/icons/calendar';
@@ -66,11 +67,11 @@
 														{/if}
 													</div>
 													{#if journey.metadata.image}
-														<div class="rounded-xl bg-slate-200 shadow-xl p-1 size-10">
+														<div class="size-10 rounded-xl bg-slate-200 p-1 shadow-xl">
 															<img
 																class="rounded-lg border-none"
 																src={journey.metadata.image?.startsWith('./')
-																	? `./../../../journey/${year}/${journey.metadata.image.replace('./', '')}`
+																	? `https://raw.githubusercontent.com/${githubConfig.username}/${githubConfig.repo}/${githubConfig.branch}/journey/${year}/${journey.metadata.image.replace('./', '')}`
 																	: journey.metadata.image}
 																alt="--"
 															/>
