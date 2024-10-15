@@ -2,6 +2,7 @@ type journey = {
 	metadata: {
 		title: string;
 		month?: string;
+		image?: string;
 	};
 	default: ConstructorOfATypedSvelteComponent;
 };

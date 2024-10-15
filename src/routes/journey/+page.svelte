@@ -51,17 +51,32 @@
 										</div>
 										<div class="grow pl-8">
 											<div class="word-break-word -mt-0.5 flex flex-col">
-												<span class="text-lg font-semibold tracking-tight"
-													>{journey.metadata.title}</span
-												>
-												{#if journey.metadata.month}
-													<span class="flex items-center gap-1 text-xs text-muted-foreground">
-														<CalendarIcon class="size-3" />
-														<span class=" font-semibold tracking-tight"
-															>{journey.metadata.month}</span
+												<div class="flex items-center justify-between">
+													<div class="flex flex-col">
+														<span class="text-lg font-semibold tracking-tight"
+															>{journey.metadata.title}</span
 														>
-													</span>
-												{/if}
+														{#if journey.metadata.month}
+															<span class="flex items-center gap-1 text-xs text-muted-foreground">
+																<CalendarIcon class="size-3" />
+																<span class=" font-semibold tracking-tight"
+																	>{journey.metadata.month}</span
+																>
+															</span>
+														{/if}
+													</div>
+													{#if journey.metadata.image}
+														<div class="rounded-xl bg-slate-200 shadow-xl p-1 size-10">
+															<img
+																class="rounded-lg border-none"
+																src={journey.metadata.image?.startsWith('./')
+																	? `./../../../journey/${year}/${journey.metadata.image.replace('./', '')}`
+																	: journey.metadata.image}
+																alt="--"
+															/>
+														</div>
+													{/if}
+												</div>
 												<div class="journey mt-1.5">
 													<Content />
 												</div>
