@@ -106,6 +106,12 @@
 </div>
 <div class="mb-3 overflow-scroll rounded-lg rounded-t-none border border-t-0 border-gray-200">
 	<pre {...restprops} class="outline-none" bind:this={codeElement}>
-		{@render children()}
+			{@render children()}
     </pre>
 </div>
+
+<style>
+	* {
+		scrollbar-width: none;
+	}
+</style>
