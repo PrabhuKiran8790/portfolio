@@ -94,8 +94,7 @@
 </script>
 
 <MetaTags
-	title={currentMeta.title}
-	titleTemplate="%s | Prabhu Kiran Konda"
+	title={`${currentMeta.title} | Prabhu`}
 	description={currentMeta.description}
 	canonical={currentMeta.url}
 	openGraph={{
