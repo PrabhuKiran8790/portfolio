@@ -10,7 +10,7 @@
 	let showDrawer = $state(false);
 
 	$effect(() => {
-		if (navigating) {
+		if (navigating.type === 'link') {
 			showDrawer = false;
 		}
 	});
