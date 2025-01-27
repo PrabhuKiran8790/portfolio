@@ -10,7 +10,7 @@
 </script>
 
 <div class="lg:hidden">
-	<div class="scrollable-area flex flex-col gap-2 p-2">
+	<div class="scrollable-area flex flex-col gap-2 p-2 pb-44">
 		{#await collections}
 			{#each Array(5) as _}
 				<div
