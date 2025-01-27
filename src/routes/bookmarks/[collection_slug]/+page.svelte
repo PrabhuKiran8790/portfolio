@@ -3,7 +3,7 @@
 	import { PageTitle } from '$lib/components/site';
 	import { Masonry } from '$lib/components/site';
 	import { headerTitle } from '$lib/stores.svelte';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 
 	let { data } = $props();
 
@@ -34,7 +34,7 @@
 
 	<meta
 		property="og:image"
-		content={`${$page.url.origin}/bookmarks/social.png?title=${data.title}&count=${data.bookmarks.length}`}
+		content={`${page.url.origin}/bookmarks/social.png?title=${data.title}&count=${data.bookmarks.length}`}
 	/>
 
 	<meta property="og:description" content={`${data.title} Bookmarks`} />
@@ -42,9 +42,9 @@
 	<meta
 		name="twitter:image"
 		property="twitter:image"
-		content={`${$page.url.origin}/bookmarks/social.png?title=${data.title}&count=${data.bookmarks.length}`}
+		content={`${page.url.origin}/bookmarks/social.png?title=${data.title}&count=${data.bookmarks.length}`}
 	/>
-	<meta property="og:url" content={$page.url.href} />
+	<meta property="og:url" content={page.url.href} />
 	<meta name="twitter:card" property="twitter:card" content="summary_large_image" />
 	<meta name="twitter:image:alt" property="twitter:title" content={data.title} />
 	<meta name="twitter:title" property="twitter:title" content={data.title} />

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { MetaTags } from 'svelte-meta-tags';
-	import { page } from '$app/stores';
+	import { page } from '$app/state'
 
 	const routes = [
 		{
@@ -90,7 +90,7 @@
 		return routes.find((route) => route.url.endsWith(pathname)) || {};
 	};
 
-	let currentMeta: any = $derived(getRouteMeta($page.url.pathname));
+	let currentMeta: any = $derived(getRouteMeta(page.url.pathname));
 </script>
 
 <MetaTags

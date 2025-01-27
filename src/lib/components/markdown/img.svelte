@@ -2,7 +2,7 @@
 	import type { HTMLImgAttributes } from 'svelte/elements';
 	import { cn, localToGithubURL } from '$lib/utils';
 	import { dev } from '$app/environment';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 
 	
 	interface Props {
@@ -35,7 +35,7 @@
 		<div
 			class={cn(
 				'-m-2 rounded-xl bg-gray-100 p-2 ring-1 ring-inset ring-gray-900/10 transition-colors duration-300 hover:bg-gray-200/80 hover:shadow-xl lg:-m-4 lg:rounded-2xl',
-				$page.url.pathname !== '/journey' ? 'lg:p-2' : 'lg:p-3'
+				page.url.pathname !== '/journey' ? 'lg:p-2' : 'lg:p-3'
 			)}
 		>
 			<img

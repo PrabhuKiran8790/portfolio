@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { headerTitle } from '$lib/stores.svelte';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { cn } from '$lib/utils';
 	import { Skeleton } from '$lib/components/ui/skeleton';
 
@@ -27,7 +27,7 @@
 			{/each}
 		{:then loadedCollections}
 			{#each loadedCollections as collection}
-				{@const isActive = $page.url.pathname === `/bookmarks/${collection.slug}`}
+				{@const isActive = page.url.pathname === `/bookmarks/${collection.slug}`}
 				<a
 					href={`/bookmarks/${collection.slug}`}
 					data-sveltekit-preload-data

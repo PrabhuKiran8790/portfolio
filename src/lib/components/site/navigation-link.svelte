@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { cn } from '$lib/utils';
 	import { ArrowUpRight } from 'lucide-svelte';
 	import type { Component } from 'svelte';
@@ -21,8 +21,8 @@
 	} = $props();
 
 	let isActive = $derived(
-		$page.url.pathname === href ||
-			($page.url.pathname.split('/')[1] === href.split('/')[1] && !isExternal)
+		page.url.pathname === href ||
+			(page.url.pathname.split('/')[1] === href.split('/')[1] && !isExternal)
 	);
 </script>
 

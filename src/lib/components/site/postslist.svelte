@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import * as Accordion from '$lib/components/ui/accordion';
 	import * as Tabs from '$lib/components/ui/tabs';
 	import { seriesPostCoverFolder } from '$lib/stores.svelte';
@@ -24,7 +24,7 @@
 	// if series
 
 	const pattern: RegExp = /-spn\d+-/; // -spn{order}- is the pattern for series post
-	let seriesSlug = $derived($page.url.pathname.split('/').pop() || '');
+	let seriesSlug = $derived(page.url.pathname.split('/').pop() || '');
 
 	let isSeriesPost = $derived(pattern.test(seriesSlug));
 
@@ -69,7 +69,7 @@
 	<Tabs.Content value="posts" class="-mx-2 -mt-1">
 		<div class="scrollable-area flex flex-col gap-1 p-2">
 			{#each posts as post}
-				{@const isActive = $page.url.pathname === `/writing/${post.slug}`}
+				{@const isActive = page.url.pathname === `/writing/${post.slug}`}
 				<a
 					href={`/writing/${post.slug}`}
 					onclick={() => {
@@ -121,7 +121,7 @@
 						</Accordion.Trigger>
 						<Accordion.Content class="mt-1 flex flex-col gap-1">
 							{#each seriesPost.subPosts as subPost}
-								{@const isActive = $page.url.pathname === `/writing/${subPost.slug}`}
+								{@const isActive = page.url.pathname === `/writing/${subPost.slug}`}
 								<a
 									href={`/writing/${subPost.slug}`}
 									class={cn(

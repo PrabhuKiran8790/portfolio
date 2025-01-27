@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { PageTitle } from '$lib/components/site';
 	import { headerTitle } from '$lib/stores.svelte';
 	import { formatDate } from '$lib/utils.js';
@@ -17,12 +17,12 @@
 	{#if !data.seriesPost}
 		<meta
 			property="og:image"
-			content={`${$page.url.origin}/writing/social.png?title=${meta.title}`}
+			content={`${page.url.origin}/writing/social.png?title=${meta.title}`}
 		/>
 	{:else}
 		<meta
 			property="og:image"
-			content={`${$page.url.origin}/writing/social.png?title=${meta.title}&isSeries=true&currentPart=${data.seriesPost?.subPosts.find((post) => post.title === meta.title)?.order}&CoverFolderName=${data.seriesPost.title}&totalParts=${data.seriesPost.subPosts.length}`}
+			content={`${page.url.origin}/writing/social.png?title=${meta.title}&isSeries=true&currentPart=${data.seriesPost?.subPosts.find((post) => post.title === meta.title)?.order}&CoverFolderName=${data.seriesPost.title}&totalParts=${data.seriesPost.subPosts.length}`}
 		/>
 	{/if}
 	<meta property="og:description" content={meta.description} />
@@ -31,16 +31,16 @@
 		<meta
 			name="twitter:image"
 			property="twitter:image"
-			content={`${$page.url.origin}/writing/social.png?title=${meta.title}`}
+			content={`${page.url.origin}/writing/social.png?title=${meta.title}`}
 		/>
 	{:else}
 		<meta
 			name="twitter:image"
 			property="twitter:image"
-			content={`${$page.url.origin}/writing/social.png?title=${meta.title}&isSeries=true&currentPart=${data.seriesPost?.subPosts.find((post) => post.title === meta.title)?.order}&CoverFolderName=${data.seriesPost.title}&totalParts=${data.seriesPost.subPosts.length}`}
+			content={`${page.url.origin}/writing/social.png?title=${meta.title}&isSeries=true&currentPart=${data.seriesPost?.subPosts.find((post) => post.title === meta.title)?.order}&CoverFolderName=${data.seriesPost.title}&totalParts=${data.seriesPost.subPosts.length}`}
 		/>
 	{/if}
-	<meta property="og:url" content={$page.url.href} />
+	<meta property="og:url" content={page.url.href} />
 	<meta name="twitter:card" property="twitter:card" content="summary_large_image" />
 	<meta name="twitter:image:alt" property="twitter:title" content={meta.title} />
 	<meta name="twitter:title" property="twitter:title" content={meta.title} />

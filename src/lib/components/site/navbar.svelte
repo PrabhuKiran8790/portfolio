@@ -3,19 +3,19 @@
 	import * as Drawer from '$lib/components/ui/drawer';
 	import { MenuContent } from '.';
 	import { headerTitle } from '$lib/stores.svelte';
-	import { navigating, page } from '$app/stores';
+	import { navigating, page } from '$app/state';
 	import { goto } from '$app/navigation';
 	import { cn } from '$lib/utils';
 
 	let showDrawer = $state(false);
 
 	$effect(() => {
-		if ($navigating) {
+		if (navigating) {
 			showDrawer = false;
 		}
 	});
 
-	let parsedUrl = $derived(new URL($page.url));
+	let parsedUrl = $derived(new URL(page.url));
 	let pathSegments = $derived(parsedUrl.pathname.split('/'));
 
 	// Check if the segment after /writing exists and is not empty
