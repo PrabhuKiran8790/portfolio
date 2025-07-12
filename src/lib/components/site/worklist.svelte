@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+	import { page } from '$app/state';
 	import type { ModuleWithFilename } from '$lib/types';
 	import { cn } from '$lib/utils';
 	import Link2Icon from 'lucide-svelte/icons/link-2';
@@ -16,6 +18,7 @@
 	$effect(() => {
 		if (selectedWork) {
 			currentWork = works.find((work) => work.filename === selectedWork);
+			goto(`/work?work=${selectedWork}`);
 		}
 	});
 </script>

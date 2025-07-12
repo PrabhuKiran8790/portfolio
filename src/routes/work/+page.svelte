@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+	import { page } from '$app/state';
 	import { langIcons } from '$lib/components/markdown/icons';
 	import Image from '$lib/components/markdown/img.svelte';
 	import { WorkList } from '$lib/components/site';
@@ -17,9 +19,16 @@
 	let showDrawer = $state(false);
 	let isDesktop = $state(false);
 
+	let selectedWorkFromURL: string | null = $state(null);
+
 	const updateScreenSize = () => {
 		isDesktop = window.innerWidth >= 1024;
 	};
+
+	$effect(() => {
+		selectedWorkFromURL = page.url.searchParams.get('work');
+		selectedWork = selectedWorkFromURL || '';
+	});
 
 	$effect(() => {
 		showDrawer = (selectedWork !== '' || currentWork !== undefined) && !isDesktop;
